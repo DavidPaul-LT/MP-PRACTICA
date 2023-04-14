@@ -11,6 +11,7 @@ public class Storage {
     private Map<String,HashSet<Serializable>> storage;
     private Storage(){
         this.storage = new HashMap<>();
+        //Storage deserialization control.
     }
 
     /**
