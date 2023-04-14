@@ -1,4 +1,6 @@
 package screen;
 
-public class Screen {
+public abstract class Screen {
+    public abstract void getOption();
+    public abstract void loadOptions();
 }
