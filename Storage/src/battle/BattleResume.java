@@ -1,4 +1,6 @@
 package battle;
 
-public class BattleResume {
+import java.io.Serializable;
+
+public class BattleResume implements Serializable {
 }
