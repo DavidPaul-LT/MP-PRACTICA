@@ -1,6 +1,6 @@
 package main;
 
-import java.util.HashMap;
+import minion.Minion;
 
 public class Main {
     public static void main(String[] args){
