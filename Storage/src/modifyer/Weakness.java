@@ -1,4 +1,7 @@
 package modifyer;
 
-public class Weakness {
+public class Weakness extends Modifyer{
+    public Weakness(String name) {
+        super(name);
+    }
 }

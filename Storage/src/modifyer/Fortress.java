@@ -1,4 +1,7 @@
 package modifyer;
 
-public class Fortress {
+public class Fortress extends Modifyer{
+    public Fortress(String name) {
+        super(name);
+    }
 }

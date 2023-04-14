@@ -1,4 +1,5 @@
 package skill;
 
-public class Gift {
+public class Gift extends Skill{
+    private int minRageCost;
 }
