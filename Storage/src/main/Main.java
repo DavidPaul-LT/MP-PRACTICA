@@ -1,6 +1,7 @@
 package main;
 
 import minion.Minion;
+import storage.Storage;
 
 public class Main {
     public static void main(String[] args){
