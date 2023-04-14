@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class Storage {
+public class Storage implements Serializable{
     private static Storage instance;
     private Map<String,HashSet<Serializable>> storage;
     private Storage(){

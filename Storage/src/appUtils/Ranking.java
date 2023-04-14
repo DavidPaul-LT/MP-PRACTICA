@@ -1,4 +1,6 @@
 package appUtils;
 
-public class Ranking {
+import java.io.Serializable;
+
+public class Ranking implements Serializable {
 }
