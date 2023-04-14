@@ -1,12 +1,13 @@
-package equipment;
+package skill;
 
 import interfaces.Factory;
 
 import java.io.Serializable;
 
-public class EquipmentFactory implements Factory {
+public class SkillFactory implements Factory {
+
     @Override
-    public Equipment create() {
+    public Skill create() {
         return null;
     }
 }

@@ -1,4 +1,8 @@
 package character;
 
-public class WerewolfFactory {
+public class WerewolfFactory extends CharacterFactory{
+    @Override
+    public Character create() {
+        return super.create();
+    }
 }

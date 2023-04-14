@@ -2,6 +2,11 @@ package modifyer;
 
 import interfaces.Factory;
 
+import java.io.Serializable;
+
 public abstract class ModifyerFactory implements Factory {
-    public abstract Modifyer create(Boolean extended);
+    @Override
+    public Modifyer create() {
+        return null;
+    }
 }
