@@ -2,5 +2,7 @@ package character;
 
 import interfaces.Master;
 
-public class Character implements Master {
+import java.io.Serializable;
+
+public abstract class Character implements Master, Serializable {
 }

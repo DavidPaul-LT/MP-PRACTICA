@@ -1,4 +1,6 @@
 package users;
 
-public class User {
+import java.io.Serializable;
+
+public abstract class User implements Serializable {
 }
