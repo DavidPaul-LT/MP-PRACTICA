@@ -1,4 +1,6 @@
 package character;
 
-public class Character {
+import interfaces.Master;
+
+public class Character implements Master {
 }

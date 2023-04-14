@@ -1,4 +1,4 @@
 package minion;
 
-public class DemonFactory {
+public class DemonFactory extends MinionFactory{
 }

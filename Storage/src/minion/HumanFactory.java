@@ -1,4 +1,4 @@
 package minion;
 
-public class HumanFactory {
+public class HumanFactory extends MinionFactory{
 }
