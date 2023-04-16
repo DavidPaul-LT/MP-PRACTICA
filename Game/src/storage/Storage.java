@@ -1,40 +1,63 @@
 package storage;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 public class Storage implements Serializable{
-    private static final String DEFAULT_PATH = "DEFAULT";
+    private static final String DEFAULT_PATH = "game_files" + File.separator + "storage.txt";
     private static Storage instance;
-    private String path;
     private Map<String,HashSet<Serializable>> storage;
-    private Storage(String path){
+    private Storage(){
         this.storage = new HashMap<>();
-        if (path != null) {
-            this.path = path;
-        }else{
-            this.path = DEFAULT_PATH;
+    }
+
+    /**
+     * Serializes the Storage instance.
+     */
+    public void serialize(){
+        try {
+            File file = new File(Storage.DEFAULT_PATH);
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(Storage.instance);
+            oos.close();
+            fos.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        //Storage deserialization control.
+    }
+
+    /**
+     * Deserializes the Storage instance.
+     * @return Storage
+     */
+    public static Storage deserialize(){
+        try {
+            FileInputStream file = new FileInputStream(Storage.DEFAULT_PATH);
+            ObjectInputStream fileAux = new ObjectInputStream(file);
+            Storage auxStorage = (Storage) fileAux.readObject();
+            file.close();
+            fileAux.close();
+            return auxStorage;
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
      * Returns an instance of storage attribute.
      * @return Storage
      */
-    public static Storage getInstance(String path){
-        if (instance == null){
-            instance = new Storage(path);
-        }
-        instance.setPath(path);
-        return instance;
-    }
     public static Storage getInstance(){
         if (instance == null){
-            instance = new Storage(null);
+            instance = new Storage();
         }
         return instance;
     }
@@ -86,11 +109,11 @@ public class Storage implements Serializable{
         }
     }
 
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
+    /**
+     * Deletes the Set associated to a specific key.
+     * @param key Key from storage map.
+     */
+    public void deleteKey(String key){
+        this.setValue(key,null);
     }
 }

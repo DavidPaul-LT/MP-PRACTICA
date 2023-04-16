@@ -21,8 +21,8 @@ class StorageTest {
     }
     @Test
     void singletonImplementationTest2(){
-        Storage testStorage = Storage.getInstance("Invented path");
-        assertEquals(testStorage,Storage.getInstance("Hola"));
+        Storage testStorage = Storage.getInstance();
+        assertEquals(testStorage,Storage.getInstance());
     }
     @Test
     void addToValueTest(){
@@ -41,8 +41,18 @@ class StorageTest {
             testStorage.addToValue(testKey, new Ghoul("Bob"));
         }
         assertEquals(testStorage.getValue(testKey).size(),randomLength);
-        Set<Serializable> testSet = testStorage.getValue(testKey);
-        testSet = null;
+        testStorage.deleteKey(testKey);
         assertNull(testStorage.getValue(testKey));
+    }
+    @Test
+    void serializationTest(){
+        Storage testStorage = Storage.getInstance();
+        String testKey = "RandomKeyValue";
+        testStorage.addToValue(testKey,null);
+        testStorage.serialize();
+        Storage testStorage2 = Storage.deserialize();
+        assertEquals(testStorage.getValue(testKey),testStorage2.getValue(testKey));
+        assertNotNull(testStorage.getValue(testKey));
+        assertNotNull(testStorage2.getValue(testKey));
     }
 }
