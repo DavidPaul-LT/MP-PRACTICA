@@ -7,10 +7,17 @@ import java.util.Map;
 import java.util.Set;
 
 public class Storage implements Serializable{
+    private static final String DEFAULT_PATH = "DEFAULT";
     private static Storage instance;
+    private String path;
     private Map<String,HashSet<Serializable>> storage;
-    private Storage(){
+    private Storage(String path){
         this.storage = new HashMap<>();
+        if (path != null) {
+            this.path = path;
+        }else{
+            this.path = DEFAULT_PATH;
+        }
         //Storage deserialization control.
     }
 
@@ -18,9 +25,16 @@ public class Storage implements Serializable{
      * Returns an instance of storage attribute.
      * @return Storage
      */
+    public static Storage getInstance(String path){
+        if (instance == null){
+            instance = new Storage(path);
+        }
+        instance.setPath(path);
+        return instance;
+    }
     public static Storage getInstance(){
         if (instance == null){
-            instance = new Storage();
+            instance = new Storage(null);
         }
         return instance;
     }
@@ -70,5 +84,13 @@ public class Storage implements Serializable{
             newSet.remove(object);
             this.setValue(key,newSet);
         }
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }
