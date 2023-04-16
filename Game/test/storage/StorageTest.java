@@ -38,7 +38,7 @@ class StorageTest {
         Storage testStorage = Storage.getInstance();
         String testKey = "Minion List";
         for (int e=0;e<randomLength;e++){
-            testStorage.addToValue(testKey, new Ghoul("James"));
+            testStorage.addToValue(testKey, new Ghoul("Bob"));
         }
         assertEquals(testStorage.getValue(testKey).size(),randomLength);
         Set<Serializable> testSet = testStorage.getValue(testKey);
