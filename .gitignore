@@ -2,3 +2,4 @@
 *.class
 /shelf/
 /workspace.xml
+/out/
