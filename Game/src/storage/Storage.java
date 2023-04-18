@@ -17,7 +17,7 @@ public class Storage implements Serializable{
     /**
      * Serializes the Storage instance.
      */
-    public void serialize(){
+    private void serialize(){
         try {
             File file = new File(Storage.DEFAULT_PATH);
             if (!file.exists()) {
@@ -38,7 +38,7 @@ public class Storage implements Serializable{
      * Deserializes the Storage instance.
      * @return Storage
      */
-    public static Storage deserialize(){
+    private static Storage deserialize(){
         try {
             FileInputStream file = new FileInputStream(Storage.DEFAULT_PATH);
             ObjectInputStream fileAux = new ObjectInputStream(file);
@@ -47,7 +47,7 @@ public class Storage implements Serializable{
             fileAux.close();
             return auxStorage;
         } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            return new Storage();
         }
     }
 
@@ -57,7 +57,7 @@ public class Storage implements Serializable{
      */
     public static Storage getInstance(){
         if (instance == null){
-            instance = new Storage();
+            instance = Storage.deserialize();
         }
         return instance;
     }
@@ -78,6 +78,7 @@ public class Storage implements Serializable{
      */
     public void setValue(String key, HashSet<Serializable> value){
         this.storage.put(key,value);
+        this.serialize();
     }
 
     /**
@@ -94,6 +95,7 @@ public class Storage implements Serializable{
         }
         newSet.add(object);
         this.setValue(key,newSet);
+        this.serialize();
     }
 
     /**
@@ -106,6 +108,7 @@ public class Storage implements Serializable{
         if (newSet != null){
             newSet.remove(object);
             this.setValue(key,newSet);
+            this.serialize();
         }
     }
 
@@ -115,5 +118,6 @@ public class Storage implements Serializable{
      */
     public void deleteKey(String key){
         this.setValue(key,null);
+        this.serialize();
     }
 }

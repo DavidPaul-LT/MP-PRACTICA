@@ -2,6 +2,7 @@ package storage;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import equipment.Armor;
 import minion.Ghoul;
 import org.junit.jupiter.api.Test;
 
@@ -46,13 +47,21 @@ class StorageTest {
     }
     @Test
     void serializationTest(){
+        Storage testStorage1 = Storage.getInstance();
+        String testKey = "RandomKey";
+        Serializable testObject = new Armor();
+        testStorage1.addToValue(testKey,testObject);
+        Storage testStorage2 = Storage.getInstance();
+        assertEquals(testStorage1.getValue(testKey),testStorage2.getValue(testKey));
+    }
+    @Test
+    void nullKeySerializationTest(){
         Storage testStorage = Storage.getInstance();
-        String testKey = "RandomKeyValue";
-        testStorage.addToValue(testKey,null);
-        testStorage.serialize();
-        Storage testStorage2 = Storage.deserialize();
-        assertEquals(testStorage.getValue(testKey),testStorage2.getValue(testKey));
-        assertNotNull(testStorage.getValue(testKey));
-        assertNotNull(testStorage2.getValue(testKey));
+        String testKey = "RandomKey";
+        for (int i=0;i< (int) (Math.random()*10);i++){
+            testStorage.addToValue(testKey,new Ghoul("Joseph"));
+        }
+        testStorage.deleteKey(testKey);
+        assertNull(Storage.getInstance().getValue(testKey));
     }
 }
