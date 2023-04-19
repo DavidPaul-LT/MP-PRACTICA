@@ -3,7 +3,7 @@ package user;
 import java.io.Serializable;
 
 public abstract class User implements Serializable {
-    String name;
+    private String name;
     private String nick;
     private final int MIN_PASSWORD_LEN = 8;
     private final int MAX_PASSWORD_LEN = 12;
@@ -12,6 +12,14 @@ public abstract class User implements Serializable {
         this.name = name;
         this.nick = nick;
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getNick() {
+        return nick;
     }
 
 }

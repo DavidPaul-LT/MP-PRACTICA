@@ -14,15 +14,12 @@ public class Client extends User{
     private final String REG_NUMBER;
     private PlayerCharacter character;
     private int gold;
-    private List<BattleResume> history;
+    private List<BattleResume> battleHistory;
     private BattleRequest challenge;
 
     public Client(String regNumber, String name, String nick, String password) {
         super(name, nick, password);
         this.REG_NUMBER = regNumber;
-    }
-    public String getName(){
-        return this.name;
     }
     public Boolean requestable(){
         return this.challenge != null;
@@ -45,7 +42,7 @@ public class Client extends User{
         Storage generalStorage = Storage.getInstance();
         Set<Serializable> clientExists = generalStorage.getValue("Client list");
         if (bet < this.gold && clientExists.contains(challengedNick)){ //Checks the gold amount and whether the challengedNick exists in storage. Missing not null challenge validation.
-            BattleRequest newBattleProposal = new BattleRequest(this.name, challengedNick, bet);
+            BattleRequest newBattleProposal = new BattleRequest(this.getName(), challengedNick, bet);
             generalStorage.addToValue("Battle requests",newBattleProposal);
             return true;
         }
@@ -60,6 +57,6 @@ public class Client extends User{
         this.challenge = null;
     }
     public Set<Client> checkGlobalRanking(){
-        return Ranking.getInstance().getRanking();
+        return null;//Ranking.getInstance().getRanking();
     }
 }
