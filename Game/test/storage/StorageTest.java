@@ -7,7 +7,6 @@ import minion.Ghoul;
 import org.junit.jupiter.api.Test;
 
 import java.io.Serializable;
-import java.util.Set;
 
 class StorageTest {
 
