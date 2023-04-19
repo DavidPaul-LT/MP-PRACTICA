@@ -6,4 +6,4 @@ EQUIPO:
 ·Cristian Andrei Vlad
 ·David Cereceda Catalán
 ·David Paul Limaylla Ticlavilca
-·[Irene Pérez Santiago]
+·Irene Pérez Santiago
