@@ -4,7 +4,9 @@ import equipment.Armor;
 import equipment.Weapon;
 import character.Character;
 
-public class PlayerCharacter {
+import java.io.Serializable;
+
+public class PlayerCharacter implements Serializable {
     private Character character;
     public void setActiveWeapon(Weapon w){
         character.setActiveWeapon(w);
