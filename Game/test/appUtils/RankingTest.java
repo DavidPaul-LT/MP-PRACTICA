@@ -2,13 +2,13 @@ package appUtils;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import storage.Storage;
 
 class RankingTest {
     @Test
     void uniqueInstanceTest(){
         Ranking testRanking = Ranking.getInstance();
-        assertEquals(testRanking,Ranking.getInstance());
+        Ranking testRanking2 = Ranking.getInstance();
+        assertEquals(testRanking,testRanking2);
     }
     @Test
     void notNullQueue(){
@@ -20,27 +20,31 @@ class RankingTest {
     }
     @Test
     void addUserTest(){
+        Ranking.reset();
         Ranking testRanking = Ranking.getInstance();
         int testScore = (int) (Math.random()*100);
         String testUser = "RandomUser";
         testRanking.addUser(testUser,testScore);
-
         Ranking testRanking2 = Ranking.getInstance();
         assertTrue(testRanking2.getScore(testScore).contains(testUser));
     }
     @Test
     void userRemovalTest(){
-        Ranking testRanking = Ranking.getInstance();
+        Ranking.reset();
+        Ranking test2Ranking = Ranking.getInstance();
         String testUser = "RandomUser";
         int testScore = 15;
         String testUser2 = "OtherRandomUser";
-        testRanking.addUser(testUser,testScore);
-        testRanking.addUser(testUser2,testScore);
-        testRanking.removeUser(testUser);
-        assertEquals(1,Ranking.getInstance().getScore(testScore).size());
+        String testUser3 = "AnyOtherPerson";
+        test2Ranking.addUser(testUser,testScore);
+        test2Ranking.addUser(testUser2,testScore);
+        test2Ranking.addUser(testUser3,testScore);
+        test2Ranking.removeUser(testUser);
+        assertEquals(2,test2Ranking.getScore(testScore).size());
     }
     @Test
     void updateUserScoreTest(){
+        Ranking.reset();
         Ranking testRanking = Ranking.getInstance();
         String testUser = "RandomUser";
         int testScore = 15;

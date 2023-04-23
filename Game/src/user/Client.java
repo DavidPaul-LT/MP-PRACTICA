@@ -38,6 +38,7 @@ public class Client extends User{
      * @param bet Part of user`s gold that would be bet if the Battle is performed.
      * @return True if process was performed successfully or false instead.
      */
+    /*
     public Boolean sendBattleRequest(String challengedNick, int bet){
         Storage generalStorage = Storage.getInstance();
         Set<Serializable> clientExists = generalStorage.getValue("Client list");
@@ -48,12 +49,13 @@ public class Client extends User{
         }
         return false;
     }
+     */
     public void acceptBattleRequest(BattleRequest b){
         //Transform BattleRequest into Battle
     }
     public void refuseBattleRequest(BattleRequest b){
         Storage generalStorage = Storage.getInstance();
-        generalStorage.deleteFromValue("Challenges",this.challenge);
+        //generalStorage.deleteFromValue("Challenges",this.challenge);
         this.challenge = null;
     }
     public Set<Client> checkGlobalRanking(){

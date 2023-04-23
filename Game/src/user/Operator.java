@@ -15,9 +15,9 @@ public class Operator extends User{
     public void editEntity(String category, String name){}
     public void validateBattleRequest(BattleRequest b){}
     public void banUser(String nick){
-        this.storage.getValue("Banned users").add(nick);
+
     }
     public void unbanUser(String nick){
-        this.storage.getValue("Banned users").remove(nick); //Missing check if user not in banned list.
+
     }
 }

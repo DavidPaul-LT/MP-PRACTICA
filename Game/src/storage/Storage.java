@@ -1,36 +1,36 @@
 package storage;
 
+import interfaces.Resetable;
+
 import java.io.*;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
-public class Storage implements Serializable{
-    private static final String DEFAULT_PATH = "game_files" + File.separator + "storage.txt";
+public class Storage implements Serializable, Resetable {
+    private static final String DEFAULT_PATH = "game_files" + File.separator + ".storage";
     private static Storage instance;
-    private Map<String,HashSet<Serializable>> storage;
+    private Map<String, Serializable> storageMap;
     private Storage(){
-        this.storage = new HashMap<>();
+        this.storageMap = new HashMap<>();
     }
 
     /**
      * Serializes the Storage instance.
      */
-    private void serialize(){
+    private Boolean serialize(){
         try {
             File file = new File(Storage.DEFAULT_PATH);
-            if (!file.exists()) {
-                file.getParentFile().mkdirs();
-                file.createNewFile();
+            if (!file.exists() && (file.getParentFile().mkdirs())){
+                    return file.createNewFile();
             }
-            FileOutputStream fos = new FileOutputStream(file);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(Storage.instance);
-            oos.close();
-            fos.close();
+            try (FileOutputStream fos = new FileOutputStream(file)) {
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+                oos.writeObject(Storage.instance);
+                oos.close();
+            }
+            return true;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            return false;
         }
     }
 
@@ -40,10 +40,12 @@ public class Storage implements Serializable{
      */
     private static Storage deserialize(){
         try {
-            FileInputStream file = new FileInputStream(Storage.DEFAULT_PATH);
-            ObjectInputStream fileAux = new ObjectInputStream(file);
-            Storage auxStorage = (Storage) fileAux.readObject();
-            file.close();
+            ObjectInputStream fileAux;
+            Storage auxStorage;
+            try (FileInputStream file = new FileInputStream(Storage.DEFAULT_PATH)) {
+                fileAux = new ObjectInputStream(file);
+                auxStorage = (Storage) fileAux.readObject();
+            }
             fileAux.close();
             return auxStorage;
         } catch (IOException | ClassNotFoundException e) {
@@ -61,14 +63,16 @@ public class Storage implements Serializable{
         }
         return instance;
     }
-
+    public static void reset(){
+        instance = null;
+    }
     /**
      * Returns the value associated to key param from the storage.
      * @param key key from storage map.
      * @return Set<Serializable>
      */
-    public Set<Serializable> getValue(String key){
-        return this.storage.get(key);
+    public Object getValue(String key){
+        return this.storageMap.get(key);
     }
 
     /**
@@ -76,40 +80,9 @@ public class Storage implements Serializable{
      * @param key key from storage map.
      * @param value value to get key associated with.
      */
-    public void setValue(String key, HashSet<Serializable> value){
-        this.storage.put(key,value);
+    public void setValue(String key, Serializable value){
+        this.storageMap.put(key, value);
         this.serialize();
-    }
-
-    /**
-     * Adds a Serializable object into a HashSet related to a key.
-     * @param key key from storage map.
-     * @param object instance to put in the HashSet.
-     */
-    public void addToValue(String key, Serializable object){
-        HashSet<Serializable> newSet = this.storage.get(key);
-        if (newSet == null){
-            newSet = new HashSet<>();
-        } else{
-            newSet = this.storage.get(key);
-        }
-        newSet.add(object);
-        this.setValue(key,newSet);
-        this.serialize();
-    }
-
-    /**
-     * Removes an object from a HashMap associated with a key from storage.
-     * @param key key from storage map.
-     * @param object instance to delete from HashSet values.
-     */
-    public void deleteFromValue(String key,Serializable object){
-        HashSet<Serializable> newSet = this.storage.get(key);
-        if (newSet != null){
-            newSet.remove(object);
-            this.setValue(key,newSet);
-            this.serialize();
-        }
     }
 
     /**
@@ -117,7 +90,7 @@ public class Storage implements Serializable{
      * @param key Key from storage map.
      */
     public void deleteKey(String key){
-        this.setValue(key,null);
+        this.storageMap.remove(key);
         this.serialize();
     }
 }

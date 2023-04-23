@@ -27,12 +27,7 @@ public class UserFactory implements Factory {
      * @return True if user was deleted and false if user was not in storage.
      */
     public Boolean delete(User u){
-        Set<Serializable> users = this.userStorage.getValue("Users");
-        if (users.contains(u)){
-            users.remove(u);
-            return true;
-        }
-        return false;
+        return null;
     }
     public void setSpecificFactory(ClientFactory specificFactory) {
         this.specificFactory = specificFactory;

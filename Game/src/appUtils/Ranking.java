@@ -38,8 +38,8 @@ public class Ranking implements Serializable {
         if (userScore != null){
             PriorityQueue<String> scorePosition = this.getScore(userScore);
             scorePosition.remove(userNick);
-            this.ranking.put(userScore,scorePosition);
-            this.invertedRanking.put(userNick,null);
+            //this.ranking.put(userScore,scorePosition);
+            this.invertedRanking.remove(userNick);
         }
     }
     public void updateUserScore(String userNick, int newScore){
@@ -48,6 +48,9 @@ public class Ranking implements Serializable {
             this.removeUser(userNick);
             this.addUser(userNick,userScore);
         }
+    }
+    public static void reset(){
+        instance = null;
     }
 
 }

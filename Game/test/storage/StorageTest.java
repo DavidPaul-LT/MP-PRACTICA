@@ -3,64 +3,77 @@ package storage;
 import static org.junit.jupiter.api.Assertions.*;
 
 import equipment.Armor;
-import minion.Ghoul;
 import org.junit.jupiter.api.Test;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 class StorageTest {
-
     @Test
     void notNullInstantiationTest(){
+        Storage.reset();
         assertNotNull(Storage.getInstance());
     }
     @Test
-    void singletonImplementationTest(){
-        Storage testStorage = Storage.getInstance();
-        assertEquals(testStorage,Storage.getInstance());
+    void singletonTest(){
+        Storage.reset();
+        Storage testStorage1 = Storage.getInstance();
+        Storage testStorage2 = Storage.getInstance();
+        assertEquals(testStorage1, testStorage2);
     }
     @Test
-    void singletonImplementationTest2(){
-        Storage testStorage = Storage.getInstance();
-        assertEquals(testStorage,Storage.getInstance());
+    void singletonTest2(){
+        Storage.reset();
+        Storage testStorage1 = Storage.getInstance();
+        Storage.reset();
+        Storage testStorage2 = Storage.getInstance();
+        assertNotEquals(testStorage1,testStorage2);
     }
     @Test
-    void addToValueTest(){
+    void setValueTest(){
+        Storage.reset();
         Storage testStorage = Storage.getInstance();
-        String testKey = "AnyRandomKey";
-        Serializable testObject = null;
-        testStorage.addToValue(testKey,testObject);
-        assertTrue(testStorage.getValue(testKey).contains(testObject));
+        String testKey = "randomKey";
+        Serializable testObject = new Armor();
+        testStorage.setValue(testKey,testObject);
+        assertNotNull(testStorage.getValue(testKey));
     }
     @Test
-    void allValuesDeletion(){
-        int randomLength = (int) (Math.random() * 10);
+    void deleteElementsTest(){
+        Storage.reset();
         Storage testStorage = Storage.getInstance();
-        String testKey = "Minion List";
-        for (int e=0;e<randomLength;e++){
-            testStorage.addToValue(testKey, new Ghoul("Bob"));
+        String testKey = "Armors";
+        int K = 5;
+        ArrayList<Serializable> testArmorArray = new ArrayList<>();
+        testStorage.setValue(testKey, testArmorArray);
+        for (int i=0;i < K; i++){
+            ArrayList<Serializable> auxPointer = (ArrayList<Serializable>) testStorage.getValue(testKey);
+            auxPointer.add(new Armor());
         }
-        assertEquals(testStorage.getValue(testKey).size(),randomLength);
+        ArrayList<Serializable> auxPointer = (ArrayList<Serializable>) testStorage.getValue(testKey);
+        auxPointer.remove(0);
+        assertEquals(K-1,((ArrayList<?>) testStorage.getValue(testKey)).size());
+    }
+    @Test
+    void deleteKeyTest(){
+        Storage.reset();
+        Storage testStorage = Storage.getInstance();
+        String testKey = "RandomKey";
+        testStorage.setValue(testKey,new Armor());
         testStorage.deleteKey(testKey);
         assertNull(testStorage.getValue(testKey));
     }
     @Test
-    void serializationTest(){
-        Storage testStorage1 = Storage.getInstance();
-        String testKey = "RandomKey";
-        Serializable testObject = new Armor();
-        testStorage1.addToValue(testKey,testObject);
-        Storage testStorage2 = Storage.getInstance();
-        assertEquals(testStorage1.getValue(testKey),testStorage2.getValue(testKey));
-    }
-    @Test
-    void nullKeySerializationTest(){
+    void safeSerializationTest(){
+        Storage.reset();
         Storage testStorage = Storage.getInstance();
         String testKey = "RandomKey";
-        for (int i=0;i< (int) (Math.random()*10);i++){
-            testStorage.addToValue(testKey,new Ghoul("Joseph"));
-        }
-        testStorage.deleteKey(testKey);
-        assertNull(Storage.getInstance().getValue(testKey));
+        ArrayList<Armor> armorSet = new ArrayList<>();
+        armorSet.add(new Armor());
+        testStorage.setValue(testKey,armorSet);
+        armorSet.add(new Armor());
+        Storage testStorage2 = Storage.getInstance();
+        ArrayList<Armor> armors = (ArrayList<Armor>) testStorage2.getValue(testKey);
+        assertEquals(2,armors.size());
     }
 }
