@@ -8,7 +8,7 @@ public class Operator extends User{
     private Storage storage;
     private GeneralFactory mainFactory;
 
-    public Operator(String name, String nick, String password) {
+    public Operator(String name, String nick, String password) throws InstantiationException {
         super(name, nick, password);
     }
 
