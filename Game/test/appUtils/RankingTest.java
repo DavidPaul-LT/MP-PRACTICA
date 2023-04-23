@@ -5,52 +5,47 @@ import org.junit.jupiter.api.Test;
 
 class RankingTest {
     @Test
-    void uniqueInstanceTest(){
-        Ranking testRanking = Ranking.getInstance();
-        Ranking testRanking2 = Ranking.getInstance();
-        assertEquals(testRanking,testRanking2);
-    }
-    @Test
-    void notNullQueue(){
-        Ranking testRanking = Ranking.getInstance();
-        int testScore = (int) (Math.random()*100);
-        String testUser = "RandomUser";
-        testRanking.addUser(testUser,testScore);
-        assertNotNull(testRanking.getScore(testScore));
-    }
-    @Test
-    void addUserTest(){
+    void initializationTest(){
         Ranking.reset();
         Ranking testRanking = Ranking.getInstance();
-        int testScore = (int) (Math.random()*100);
-        String testUser = "RandomUser";
-        testRanking.addUser(testUser,testScore);
-        Ranking testRanking2 = Ranking.getInstance();
-        assertTrue(testRanking2.getScore(testScore).contains(testUser));
+        assertEquals(testRanking,Ranking.getInstance());
     }
     @Test
-    void userRemovalTest(){
-        Ranking.reset();
-        Ranking test2Ranking = Ranking.getInstance();
-        String testUser = "RandomUser";
-        int testScore = 15;
-        String testUser2 = "OtherRandomUser";
-        String testUser3 = "AnyOtherPerson";
-        test2Ranking.addUser(testUser,testScore);
-        test2Ranking.addUser(testUser2,testScore);
-        test2Ranking.addUser(testUser3,testScore);
-        test2Ranking.removeUser(testUser);
-        assertEquals(2,test2Ranking.getScore(testScore).size());
-    }
-    @Test
-    void updateUserScoreTest(){
+    void userInsertionTest(){
         Ranking.reset();
         Ranking testRanking = Ranking.getInstance();
-        String testUser = "RandomUser";
-        int testScore = 15;
-        testRanking.addUser(testUser,testScore);
-        testRanking.updateUserScore(testUser,testScore+15);
-        assertNotNull(testRanking.getScore(testScore+15));
-        assertNotNull(testRanking.getScore(15));
+        String testUser = "Paul";
+        int testScore = 50;
+        testRanking.setUserScore(testUser,testScore);
+        assertEquals(testScore,testRanking.getUserScore(testUser));
+    }
+    @Test
+    void userScoreUpdate(){
+        Ranking.reset();
+        Ranking testRanking = Ranking.getInstance();
+        String testUser = "Paul";
+        int testScore = 50;
+        testRanking.setUserScore(testUser,testScore);
+        testRanking.setUserScore(testUser,testScore*2);
+        assertEquals(testScore*2,testRanking.getUserScore(testUser));
+    }
+    @Test
+    void multipleScorePositionsTest(){
+        Ranking.reset();
+        Ranking testRanking = Ranking.getInstance();
+        String[] userNames = {"Peter", "Charles", "Paul"};
+        int testScore = 150;
+        for (String userNick: userNames) {
+            testRanking.setUserScore(userNick,testScore);
+        }
+        assertEquals(userNames.length,testRanking.getScorePosition(testScore).size());
+    }
+    @Test
+    void userDeletionTest(){
+        Ranking.reset();
+        Ranking testRanking = Ranking.getInstance();
+        testRanking.setUserScore("Peter",12);
+        testRanking.removeFromRanking("Peter");
+        assertTrue(testRanking.getScorePosition(12).isEmpty());
     }
 }
