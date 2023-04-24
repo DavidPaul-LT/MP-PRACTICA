@@ -18,8 +18,8 @@ public class ScreenSignUp extends Screen{
 
     @Override
     public void getOption(){
-        UserFactory userFactory = new UserFactory();
-        if (!userFactory.checkUser(this.nickName,this.password)){
+        UserManager userManager = new UserManager();
+        if (!userManager.checkUser(this.nickName,this.password)){
             User newUser;
             if (this.isOperator.equals("S")){
                 OperatorBuilder newOperatorCreator = new OperatorBuilder();
@@ -28,7 +28,7 @@ public class ScreenSignUp extends Screen{
                 newOperatorCreator.setPassword(this.password);
                 try {
                     newUser = newOperatorCreator.build();
-                    userFactory.create("User:"+this.nickName,newUser);
+                    userManager.create("User:"+this.nickName,newUser);
                 } catch (InstantiationException e) {
                     System.out.println("La contraseña debe tener un tamaño mínimo de 8 caracteres y uno máximod de 12\nPulsa enter para reintentarlo");
                     inputs.nextLine();
@@ -41,7 +41,7 @@ public class ScreenSignUp extends Screen{
                 newClientCreator.setName(this.name);
                 try {
                     newUser = newClientCreator.build();
-                    userFactory.create("User:"+this.nickName,newUser);
+                    userManager.create("User:"+this.nickName,newUser);
                 } catch (InstantiationException e) {
                     System.out.println("La contraseña debe tener un tamaño mínimo de 8 caracteres y uno máximod de 12\nPulsa enter para reintentarlo");
                     inputs.nextLine();

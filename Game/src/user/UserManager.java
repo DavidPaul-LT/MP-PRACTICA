@@ -4,23 +4,19 @@ import interfaces.Factory;
 import storage.Storage;
 
 
-public class UserFactory implements Factory {
-    private static String USER = "User:";
+public class UserManager implements Factory {
+    private static final String USER = "User:";
     protected Storage userStorage;
-    private UserFactory specificFactory;
-    public UserFactory(){
+    public UserManager(){
         this.userStorage = Storage.getInstance();
     }
 
     /**
      * Deletes an instance of User from storage.
-     * @param u User to remove
+     * @param userNick User to remove
      */
     public void delete(String userNick){
         userStorage.deleteKey(USER + userNick);
-    }
-    public void setSpecificFactory(UserFactory specificFactory) {
-        this.specificFactory = specificFactory;
     }
 
     public User getUser(String nickName) {

@@ -1,15 +1,12 @@
 package screen;
 
-import user.UserFactory;
+import user.UserManager;
 
 import java.util.Scanner;
 
 public class DeleteAccountScreen extends Screen{
     private String userNick;
     private String userPassword;
-    //TODO Enlazar con el operador para que al eliminar
-    //aparezca por pantalla quien ha eliminado al jugador x
-    // private Operator operatorName;
     private Scanner scanner = new Scanner(System.in);
 
     public DeleteAccountScreen(String title) {
@@ -20,9 +17,9 @@ public class DeleteAccountScreen extends Screen{
 
     @Override
     public void getOption(){
-        UserFactory userFactory = new UserFactory();
-        if (userFactory.checkUser(this.userNick,this.userPassword)){
-            userFactory.delete(this.userNick);
+        UserManager userManager = new UserManager();
+        if (userManager.checkUser(this.userNick,this.userPassword)){
+            userManager.delete(this.userNick);
             System.out.println("El usuario " + this.userNick + " ha sido eliminado de forma exitosa");
         }else{
             System.out.println("El usuario " + this.userNick + " no pudo ser eliminado");

@@ -1,8 +1,7 @@
 package screen;
 
-import user.ClientFactory;
 import user.User;
-import user.UserFactory;
+import user.UserManager;
 
 import java.util.Scanner;
 
@@ -18,9 +17,9 @@ public class ScreenLogin extends Screen{
 
     @Override
     public void getOption() {
-        UserFactory userFactory = new UserFactory();
-        if (userFactory.checkUser(this.nickName,this.password)){
-            User user = userFactory.getUser(this.nickName);
+        UserManager userManager = new UserManager();
+        if (userManager.checkUser(this.nickName,this.password)){
+            User user = userManager.getUser(this.nickName);
             //TODO Profile's screen.
         } else {
             System.out.println("Usuario o contraseña incorrectos\nPulsa enter para iniciar sesión");
