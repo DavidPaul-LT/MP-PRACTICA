@@ -2,25 +2,25 @@ package ScreenClass;
 
 import java.util.Scanner;
 
-public class BanOrUnbanScreen extends Screen{
+public class ScreenBanOrUnban extends Screen{
     private String user;
     private int option;
     private Scanner scanner = new Scanner(System.in);
 
-    public BanOrUnbanScreen(String title) {
+    public ScreenBanOrUnban(String title) {
         super(title);
         showOptions();
         getOptions();
     }
 
-    @Override
-    public void getOptions() {
+        @Override
+        public void getOptions() {
         System.out.println(this.getTitle());
         System.out.print("Usuario: ");
         this.user = scanner.nextLine();
         banOrUnban();
     }
-    public void banOrUnban(){
+        public void banOrUnban(){
         if(option == 1 && this.user == null){
             System.out.println("El usuario " + this.user + " ha sido baneado");
         }else{
@@ -28,11 +28,12 @@ public class BanOrUnbanScreen extends Screen{
         }
     }
 
-    @Override
-    public void showOptions() {
+        @Override
+        public void showOptions() {
         System.out.println(this.getTitle());
         System.out.println("Banear [1]");
         System.out.println("Desbanear [2]");
+        System.out.print("Seleccion: ");
         this.option = scanner.nextInt();
         if(option == 1){
             this.setTitle("Pantalla Baneo");

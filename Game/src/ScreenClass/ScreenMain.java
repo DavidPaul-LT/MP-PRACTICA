@@ -25,6 +25,7 @@ public class ScreenMain extends Screen{
         System.out.println("Eliminar Cuenta [3]");
         System.out.println("Salir [4]");
         System.out.println("Administrar Cuenta [5]");
+        System.out.print("Seleccion: ");
         this.option = scanner.nextInt();
         switch (option){
             case 1:
@@ -40,7 +41,7 @@ public class ScreenMain extends Screen{
             case 4:
                 System.exit(0);
             case 5:
-                Screen AccountAdmin = new BanOrUnbanScreen("Administrar Cuenta");
+                Screen AccountAdmin = new ScreenBanOrUnban("Administrar Cuenta");
                 break;
             default:
                 showOptions();
