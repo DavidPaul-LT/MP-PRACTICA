@@ -24,7 +24,7 @@ public class ScreenMain extends Screen {
                 new ScreenLogin("Inicar sesión");
                 break;
             case 3:
-                new ScreenUserRemoval("Borrar cuenta");
+                new DeleteAccountScreen("Borrar cuenta");
                 break;
             default:
                 System.out.println("Hasta pronto");

@@ -31,7 +31,6 @@ public class ScreenLogin extends Screen{
 
     @Override
     public void loadOptions() {
-        System.out.println("Iniciar sesión");
         System.out.print("Usuario: ");
         this.nickName = inputs.nextLine();
         System.out.print("Constraseña: ");

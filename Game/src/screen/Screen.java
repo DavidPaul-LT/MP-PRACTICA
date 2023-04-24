@@ -6,6 +6,7 @@ public abstract class Screen {
     protected Screen(String title) {
         this.addSpacing();
         this.title = title;
+        System.out.println(title);
     }
 
     public String getTitle() {
