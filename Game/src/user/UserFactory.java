@@ -14,10 +14,6 @@ public class UserFactory implements Factory {
     public UserFactory(){
         this.userStorage = Storage.getInstance();
     }
-    /**
-     * Returns an instance of User created by a specific factory.
-     * @return User
-     */
 
     /**
      * Deletes an instance of User from storage.

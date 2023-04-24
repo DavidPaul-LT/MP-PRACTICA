@@ -28,7 +28,13 @@ public class ScreenSignUp extends Screen{
                 newClientCreator.setNick(this.nickName);
                 newClientCreator.setPassword(this.password);
                 newClientCreator.setName(this.name);
-
+                try {
+                    newUser = newClientCreator.build();
+                } catch (InstantiationException e) {
+                    System.out.println("La contraseña debe tener un tamaño mínimo de 8 caracteres y uno máximod de 12\nPulsa enter para reintentarlo");
+                    inputs.nextLine();
+                    new ScreenSignUp("Introduce otra contraseña");
+                }
             }
         } else {
             //TODO User already exists
