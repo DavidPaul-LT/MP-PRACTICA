@@ -3,12 +3,12 @@ package user;
 import interfaces.Factory;
 import storage.Storage;
 
-import java.io.Serializable;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserFactory implements Factory {
-    private Storage userStorage;
-    private ClientFactory specificFactory;
+    protected Storage userStorage;
+    private UserFactory specificFactory;
     public UserFactory(){
         this.userStorage = Storage.getInstance();
     }
@@ -17,17 +17,18 @@ public class UserFactory implements Factory {
      * @return User
      */
     @Override
-    public User create() {
+    public User create() throws InstantiationException {
         return this.specificFactory.create();
     }
 
     /**
      * Deletes an instance of User from storage.
      * @param u User to remove
-     * @return True if user was deleted and false if user was not in storage.
      */
-    public Boolean delete(User u){
-        return null;
+    public void delete(User u){
+        HashMap<String, Map<String,User>> auxUser = (HashMap<String, Map<String, User>>) userStorage.getValue("Users");
+        auxUser.get("Clients").remove(u.getName());
+        auxUser.get("Operators").remove(u.getName());
     }
     public void setSpecificFactory(ClientFactory specificFactory) {
         this.specificFactory = specificFactory;

@@ -5,6 +5,6 @@ import screen.ScreenMain;
 
 public class GameRunner {
     public void run() {
-        Screen sc = new ScreenMain();
+        Screen mainScreen = new ScreenMain();
     }
 }

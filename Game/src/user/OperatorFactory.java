@@ -1,8 +1,7 @@
 package user;
 
 public class OperatorFactory extends UserFactory{
-    @Override
-    public User create() {
-        return super.create();
+    public User create(String name, String nick, String password) throws InstantiationException {
+        return new Operator(name,nick,password,null);
     }
 }
