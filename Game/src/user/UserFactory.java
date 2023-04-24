@@ -33,7 +33,7 @@ public class UserFactory implements Factory {
     }
 
     public boolean checkUser(String nickName, String password) {
-        User userToCheck = (User) userStorage.getValue("Users:" + nickName);
+        User userToCheck = (User) userStorage.getValue("User:" + nickName);
         return (userToCheck != null && userToCheck.getPassword().equals(password));
     }
 }

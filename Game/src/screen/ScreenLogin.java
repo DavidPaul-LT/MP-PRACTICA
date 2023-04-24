@@ -23,7 +23,9 @@ public class ScreenLogin extends Screen{
             User user = userFactory.getUser(this.nickName);
             //TODO Profile's screen.
         } else {
-            //TODO Passwords do not match.
+            System.out.println("Usuario o contraseña incorrectos\nPulsa enter para iniciar sesión");
+            inputs.nextLine();
+            new ScreenLogin("Iniciar sesión");
         }
     }
 

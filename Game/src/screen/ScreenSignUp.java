@@ -22,7 +22,18 @@ public class ScreenSignUp extends Screen{
         if (!userFactory.checkUser(this.nickName,this.password)){
             User newUser;
             if (this.isOperator.equals("S")){
-                //TODO Operator creation
+                OperatorBuilder newOperatorCreator = new OperatorBuilder();
+                newOperatorCreator.setName(this.name);
+                newOperatorCreator.setNick(this.nickName);
+                newOperatorCreator.setPassword(this.password);
+                try {
+                    newUser = newOperatorCreator.build();
+                    userFactory.create("User:"+this.nickName,newUser);
+                } catch (InstantiationException e) {
+                    System.out.println("La contraseña debe tener un tamaño mínimo de 8 caracteres y uno máximod de 12\nPulsa enter para reintentarlo");
+                    inputs.nextLine();
+                    new ScreenSignUp("Introduce otra contraseña");
+                }
             }else if (this.isOperator.equals("N")){
                 ClientBuilder newClientCreator = new ClientBuilder();
                 newClientCreator.setNick(this.nickName);
@@ -30,20 +41,29 @@ public class ScreenSignUp extends Screen{
                 newClientCreator.setName(this.name);
                 try {
                     newUser = newClientCreator.build();
+                    userFactory.create("User:"+this.nickName,newUser);
                 } catch (InstantiationException e) {
                     System.out.println("La contraseña debe tener un tamaño mínimo de 8 caracteres y uno máximod de 12\nPulsa enter para reintentarlo");
                     inputs.nextLine();
                     new ScreenSignUp("Introduce otra contraseña");
                 }
+            }else{
+                System.out.println("¿Cómo coño has llegado hasta aquí\nPulsa enter para volver");
+                inputs.nextLine();
+                new ScreenMain("Bienvenido");
             }
         } else {
-            //TODO User already exists
+            System.out.println("La cuenta ya existe\nPulsa enter para iniciar sesión");
+            inputs.nextLine();
+            new ScreenLogin("Iniciar sesión");
         }
     }
 
     @Override
     public void loadOptions() {
-        System.out.println("Iniciar sesión");
+        System.out.println("Registrarse");
+        System.out.print("Nombre: ");
+        this.name = inputs.nextLine();
         System.out.print("Usuario: ");
         this.nickName = inputs.nextLine();
         System.out.print("Constraseña: ");
