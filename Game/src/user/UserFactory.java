@@ -5,6 +5,7 @@ import storage.Storage;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class UserFactory implements Factory {
     protected Storage userStorage;
@@ -32,5 +33,14 @@ public class UserFactory implements Factory {
     }
     public void setSpecificFactory(ClientFactory specificFactory) {
         this.specificFactory = specificFactory;
+    }
+
+    public User getUser(String nickName) {
+        return (User) userStorage.getValue("Users:" + nickName);
+    }
+
+    public boolean checkUser(String nickName, String password) {
+        User userToCheck = (User) userStorage.getValue("Users:" + nickName);
+        return (userToCheck != null && userToCheck.getPassword().equals(password));
     }
 }
