@@ -1,6 +1,6 @@
 package ScreenClass;
 
-public class Screen {
+public abstract class Screen {
     private String title;
 
     public Screen(String title) {
@@ -15,4 +15,7 @@ public class Screen {
         this.title = title;
     }
 
+    public abstract void getOptions();
+
+    public abstract void showOptions();
 }

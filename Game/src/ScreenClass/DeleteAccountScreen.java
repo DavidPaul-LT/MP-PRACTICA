@@ -1,14 +1,15 @@
 package ScreenClass;
 
-import java.nio.FloatBuffer;
 import java.util.Scanner;
 
-public class ScreenLogin extends Screen{
+public class DeleteAccountScreen extends Screen{
     private String user;
-    private String password;
+    //TODO Enlazar con el operador para que al eliminar
+    //aparezca por pantalla quien ha eliminado al jugador x
+    // private Operator operatorName;
     private Scanner scanner = new Scanner(System.in);
 
-    public ScreenLogin(String title) {
+    public DeleteAccountScreen(String title) {
         super(title);
         showOptions();
         getOptions();
@@ -17,19 +18,14 @@ public class ScreenLogin extends Screen{
 
     @Override
     public void getOptions() {
-        System.out.println("Se ha creado una cuenta el usuario " + this.user);
+        System.out.println("El usuario " + this.user + " ha sido eliminado por " + "this.operator.getName())");
         //...
     }
 
-
     @Override
-    public void showOptions(){
+    public void showOptions() {
         System.out.println(this.getTitle());
         System.out.print("Usuario: ");
         this.user = scanner.nextLine();
-        System.out.print("Contraseña: ");
-        this.password = scanner.nextLine();
     }
-
-
 }

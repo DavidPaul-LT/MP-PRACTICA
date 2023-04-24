@@ -8,20 +8,42 @@ public class ScreenMain extends Screen{
     public ScreenMain(String title) {
         super(title);
 
+        showOptions();
+        getOptions();
     }
+
+
+    @Override
+    public void getOptions() {
+
+    }
+
     public void showOptions(){
         System.out.println("Bienvenido a Noche de batallas: el juego de rol multijugador");
-        System.out.println("Deleta account [0]");
-        System.out.println("SingUp [1]");
-        System.out.println("LogIn [2]");
-        System.out.println("EXIT []3");
+        System.out.println("Registrarse [1]");
+        System.out.println("Entrar [2]");
+        System.out.println("Eliminar Cuenta [3]");
+        System.out.println("Salir [4]");
+        System.out.println("Administrar Cuenta [5]");
         this.option = scanner.nextInt();
         switch (option){
             case 1:
-                Screen logIn = new ScreenLogin("Login");
+                Screen signUp = new ScreenSingUp("SignUp");
+                showOptions();
                 break;
             case 2:
-                Screen signUp = new ScreenSingUp("SignUp");
+                Screen logIn = new ScreenLogin("Login");
+                break;
+            case 3:
+                //TODO clase Screen Delete Account
+                showOptions();
+            case 4:
+                System.exit(0);
+            case 5:
+                Screen AccountAdmin = new BanOrUnbanScreen("Administrar Cuenta");
+                break;
+            default:
+                showOptions();
         }
     }
 
