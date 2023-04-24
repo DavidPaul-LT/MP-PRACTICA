@@ -15,8 +15,5 @@ public class ScreenRequestBattle extends Screen{
 
     }
 
-    @Override
-    public void loadForm() {
 
-    }
 }

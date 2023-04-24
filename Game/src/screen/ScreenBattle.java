@@ -15,9 +15,5 @@ public class ScreenBattle extends Screen{
 
     }
 
-    @Override
-    public void loadForm() {
-
-    }
     public void loadBattleContent(){}
 }

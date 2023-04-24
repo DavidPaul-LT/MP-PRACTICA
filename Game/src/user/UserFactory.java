@@ -3,6 +3,7 @@ package user;
 import interfaces.Factory;
 import storage.Storage;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,10 +18,6 @@ public class UserFactory implements Factory {
      * Returns an instance of User created by a specific factory.
      * @return User
      */
-    @Override
-    public User create() throws InstantiationException {
-        return this.specificFactory.create();
-    }
 
     /**
      * Deletes an instance of User from storage.
@@ -28,10 +25,10 @@ public class UserFactory implements Factory {
      */
     public void delete(User u){
         HashMap<String, Map<String,User>> auxUser = (HashMap<String, Map<String, User>>) userStorage.getValue("Users");
-        auxUser.get("Clients").remove(u.getName());
-        auxUser.get("Operators").remove(u.getName());
+        auxUser.get("Client HashSet").remove(u.getName());
+        auxUser.get("Operator HashSet").remove(u.getName());
     }
-    public void setSpecificFactory(ClientFactory specificFactory) {
+    public void setSpecificFactory(UserFactory specificFactory) {
         this.specificFactory = specificFactory;
     }
 

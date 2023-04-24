@@ -15,9 +15,6 @@ public class ScreenRanking extends Screen{
 
     }
 
-    @Override
-    public void loadForm() {
 
-    }
     public void loadLeaderboard(){}
 }

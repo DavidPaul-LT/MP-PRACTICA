@@ -14,18 +14,17 @@ public class ScreenMain extends Screen {
     }
 
     @Override
-    public void getOption() {
+    public void getOption(){
         this.option = scanner.nextInt();
         switch (option) {
             case 1:
-                //Screen signUp = new ScreenSingUp("SignUp");
-                //TODO Sign Up user's account
+                new ScreenSignUp("Registrarse");
                 break;
             case 2:
-                Screen logIn = new ScreenLogin("Inicar sesión");
+                new ScreenLogin("Inicar sesión");
                 break;
             case 3:
-                //TODO Remove user's account
+                new ScreenUserRemoval("Borrar cuenta");
                 break;
             default:
                 System.out.println("Hasta pronto");
@@ -39,10 +38,5 @@ public class ScreenMain extends Screen {
         System.out.println("Iniciar sesión [2]");
         System.out.println("Borrar cuenta [3]");
         System.out.println("EXIT []");
-    }
-
-    @Override
-    public void loadForm() {
-
     }
 }

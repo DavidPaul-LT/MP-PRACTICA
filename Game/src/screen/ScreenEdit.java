@@ -15,8 +15,4 @@ public class ScreenEdit extends Screen{
 
     }
 
-    @Override
-    public void loadForm() {
-
-    }
 }

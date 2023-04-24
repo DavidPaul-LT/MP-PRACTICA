@@ -1,7 +1,7 @@
 package screen;
 
-public class ScreenBanUnban extends Screen{
-    public ScreenBanUnban(String title) {
+public class ScreenUserRemoval extends Screen{
+    public ScreenUserRemoval(String title) {
         super(title);
     }
 
@@ -14,5 +14,4 @@ public class ScreenBanUnban extends Screen{
     public void loadOptions() {
 
     }
-
 }

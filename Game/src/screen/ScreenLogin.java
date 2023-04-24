@@ -2,6 +2,7 @@ package screen;
 
 import user.ClientFactory;
 import user.User;
+import user.UserFactory;
 
 import java.util.Scanner;
 
@@ -17,11 +18,13 @@ public class ScreenLogin extends Screen{
 
     @Override
     public void getOption() {
-        ClientFactory clientFactory = new ClientFactory();
-        if (clientFactory.checkUser(this.nickName,this.password)){
-            User user = clientFactory.getUser(this.nickName);
+        UserFactory userFactory = new UserFactory();
+        if (userFactory.checkUser(this.nickName,this.password)){
+            User user = userFactory.getUser(this.nickName);
             //TODO Profile's screen.
-        };
+        } else {
+            //TODO Passwords do not match.
+        }
     }
 
     @Override
@@ -33,8 +36,4 @@ public class ScreenLogin extends Screen{
         this.password = inputs.nextLine();
     }
 
-    @Override
-    public void loadForm() {
-
-    }
 }

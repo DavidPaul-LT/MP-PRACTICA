@@ -15,9 +15,6 @@ public class ScreenHistory extends Screen{
 
     }
 
-    @Override
-    public void loadForm() {
 
-    }
     public void loadClientHistory(){}
 }
