@@ -1,8 +1,10 @@
-package ScreenClass;
+package ScreenClass.Operator;
+
+import ScreenClass.Screen;
 
 import java.util.Scanner;
 
-public class ScreenEditStorage extends Screen{
+public class ScreenEditStorage extends Screen {
     private int option;
     private Scanner scanner = new Scanner(System.in);
 

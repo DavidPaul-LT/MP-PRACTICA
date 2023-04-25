@@ -1,5 +1,7 @@
 package ScreenClass;
 
+import ScreenClass.Operator.ScreenBanOrUnban;
+
 import java.util.Scanner;
 
 public class ScreenMain extends Screen{

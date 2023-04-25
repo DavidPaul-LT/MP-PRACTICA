@@ -1,8 +1,10 @@
-package ScreenClass;
+package ScreenClass.Operator;
+
+import ScreenClass.Screen;
 
 import java.util.Scanner;
 
-public class ScreenBanOrUnban extends Screen{
+public class ScreenBanOrUnban extends Screen {
     private String user;
     private int option;
     private Scanner scanner = new Scanner(System.in);

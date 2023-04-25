@@ -1,8 +1,11 @@
-package ScreenClass;
+package ScreenClass.Client;
+
+import ScreenClass.Screen;
+import ScreenClass.ScreenMain;
 
 import java.util.Scanner;
 
-public class ScreenClientMenu extends Screen{
+public class ScreenClientMenu extends Screen {
     private int option;
 
     private Scanner scanner = new Scanner(System.in);

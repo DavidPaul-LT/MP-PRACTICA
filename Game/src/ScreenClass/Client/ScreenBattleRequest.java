@@ -1,8 +1,10 @@
-package ScreenClass;
+package ScreenClass.Client;
+
+import ScreenClass.Screen;
 
 import java.util.Scanner;
 
-public class ScreenBattleRequest extends Screen{
+public class ScreenBattleRequest extends Screen {
     //TODO private Cliente cliente;
     private String cliente;
 

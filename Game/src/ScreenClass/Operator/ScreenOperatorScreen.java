@@ -1,8 +1,12 @@
-package ScreenClass;
+package ScreenClass.Operator;
+
+import ScreenClass.Screen;
+import ScreenClass.Client.ScreenBattleRequest;
+import ScreenClass.ScreenMain;
 
 import java.util.Scanner;
 
-public class ScreenOperatorScreen extends Screen{
+public class ScreenOperatorScreen extends Screen {
     private int option;
 
     private final Scanner scanner = new Scanner(System.in);
