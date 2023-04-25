@@ -32,6 +32,9 @@ public class OperatorMenuScreen implements Screen {
                 new BanUnbanScreen(this.user);
                 break;
             case 5:
+                new DeleteAccountScreen(this.user);
+                break;
+            case 6:
                 new MainScreen();
                 break;
             default:
@@ -47,7 +50,8 @@ public class OperatorMenuScreen implements Screen {
         System.out.println("Editar Personajes [2]");
         System.out.println("Validar desafíos [3]");
         System.out.println("Administrar cuentas [4]");
-        System.out.println("Cerrar sesión [5]");
+        System.out.println("Borrar cuenta [5]");
+        System.out.println("Cerrar sesión [6]");
         System.out.print("Seleccion: ");
         this.getOption();
     }

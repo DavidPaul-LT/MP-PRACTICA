@@ -3,6 +3,7 @@ package screen;
 import interfaces.Screen;
 import user.Client;
 import user.User;
+import user.UserManager;
 
 import java.util.Scanner;
 
@@ -31,6 +32,9 @@ public class ClientMenuScreen implements Screen {
                 new RankingScreen(this.user);
                 break;
             case 5:
+                new DeleteAccountScreen(this.user);
+                break;
+            case 6:
                 new MainScreen();
                 break;
             default:
@@ -46,7 +50,8 @@ public class ClientMenuScreen implements Screen {
         System.out.println("Desafiar [2]");
         System.out.println("Mis combates [3]");
         System.out.println("Ver ranking [4]");
-        System.out.println("Cerrar sesión [5]");
+        System.out.println("Borrar cuenta [5]");
+        System.out.println("Cerrar sesión [6]");
         System.out.print("Seleccion: ");
         this.getOption();
     }

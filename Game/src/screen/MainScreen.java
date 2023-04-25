@@ -33,6 +33,7 @@ public class MainScreen implements Screen {
         System.out.println("Registrarse [1]");
         System.out.println("Iniciar sesión [2]");
         System.out.println("Salir de la app [3]");
+        System.out.print("Seleccion: ");
         this.getOption();
     }
 }
