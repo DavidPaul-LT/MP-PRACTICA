@@ -9,14 +9,6 @@ public abstract class Screen {
         System.out.println(title);
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public abstract void getOption();
 
     public abstract void loadOptions();
