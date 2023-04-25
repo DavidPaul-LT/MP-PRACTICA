@@ -28,7 +28,10 @@ public class UserManager implements Factory {
     public User getUser(String nickName) {
         return (User) userStorage.getValue(USER + nickName);
     }
-
+    public Boolean isUserBaned(String userNick){
+        HashSet<String> bannedClients = (HashSet<String>) this.userStorage.getValue("Banned clients");
+        return bannedClients.contains(userNick);
+    }
     public boolean checkUser(String nickName, String password) {
         User userToCheck = (User) userStorage.getValue(USER + nickName);
         return (userToCheck != null && userToCheck.getPassword().equals(password));

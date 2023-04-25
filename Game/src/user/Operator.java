@@ -22,17 +22,11 @@ public class Operator extends User{
     public void editEntity(String category, String name){}
     public void validateBattleRequest(BattleRequest b){}
     public void banUser(String nick){
-        HashMap<String, HashMap<String, Serializable>> usersInStorageValue = (HashMap<String, HashMap<String, Serializable>>) storage.getValue("Users");
-        Client user = (Client) usersInStorageValue.get("Clients").get(nick);
-        Set<String> bannedList = (Set<String>) storage.getValue("Banned clients");
-        if (user != null){
-            if (bannedList != null){
-                bannedList.add(nick);
-            }else{
-                bannedList = new HashSet<>();
-                bannedList.add(nick);
-            }
+        Set<String> bannedList = (Set<String>) this.storage.getValue("Banned clients");
+        if (bannedList == null){
+            bannedList = new HashSet<>();
         }
+        bannedList.add(nick);
     }
     public void unbanUser(String nick){
         Set<String> bannedList = (Set<String>) storage.getValue("Banned clients");

@@ -1,5 +1,6 @@
 package screen;
 
+import user.Operator;
 import user.User;
 
 import java.util.Scanner;
@@ -29,7 +30,7 @@ public class ScreenOperatorMenu extends Screen{
                 new ScreenBattleRequest("Desafia");
                 break;
             case 4:
-                new ScreenBanOrUnban("Administrar Cuenta");
+                new ScreenBanOrUnban("Administrar Cuenta", (Operator) this.user);
                 break;
             case 5:
                 new ScreenMain("Bienvenido a Noche de batallas: el juego de rol multijugador");
