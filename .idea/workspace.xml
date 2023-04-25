@@ -4,38 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00eed7e1-4e4c-43cf-a1ac-f5abd96969e3" name="Changes" comment="Rama Paul actualizada con el contenido de Cristian">
-      <change afterPath="$PROJECT_DIR$/Game/src/screen/General/SignUpScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/main/GameRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/main/GameRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/BattleRequestScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/Client/BattleRequestScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/CambatHistoryScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/General/CambatHistoryScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ClientMenuScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/Client/ClientMenuScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/DeleteAccountScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/DeleteAccountScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/EditStorageScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/Operator/EditStorageScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/LogInScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/General/LogInScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/General/MainScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/OperatorMenuScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/Operator/OperatorMenuScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/RankingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/Client/RankingScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/RequestValidatorScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/Operator/RequestValidatorScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/General/Screen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenBanOrUnban.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/Operator/ScreenBanOrUnban.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenBanUnban.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenBanUnban.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenBattle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenBattleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenBattleRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenClientMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenClientMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenEdit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenEditRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenEditRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenEditStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenEditStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenOperatorMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenOperatorMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenRanking.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenRanking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenRequestBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/ScreenRequestBattle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/ScreenSignUp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/src/screen/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/src/screen/SignUpScreen.java" afterDir="false" />
-    </list>
+    <list default="true" id="00eed7e1-4e4c-43cf-a1ac-f5abd96969e3" name="Changes" comment="rama a actualizar otra vez" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +18,28 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Paul" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="20a7d844-0d95-4046-b885-0b2ad5c25379" />
+        <option name="url" value="https://github.com/DavidPaul-LT/MP-PRACTICA.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Game/src/user/ClientBuilder.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -104,11 +94,19 @@
       <option name="project" value="LOCAL" />
       <updated>1682450789858</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="rama a actualizar otra vez">
+      <created>1682452352496</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682452352496</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Rama Paul actualizada con el contenido de Cristian" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rama Paul actualizada con el contenido de Cristian" />
+    <MESSAGE value="rama a actualizar otra vez" />
+    <option name="LAST_COMMIT_MESSAGE" value="rama a actualizar otra vez" />
   </component>
 </project>
