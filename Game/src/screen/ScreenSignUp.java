@@ -1,7 +1,9 @@
 package screen;
 
+import storage.Storage;
 import user.*;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class ScreenSignUp extends Screen{
@@ -29,6 +31,9 @@ public class ScreenSignUp extends Screen{
                 try {
                     newUser = newOperatorCreator.build();
                     userManager.create("User:"+this.nickName,newUser);
+                    Storage auxStorage = Storage.getInstance();
+                    HashSet<String> auxClientSet = (HashSet<String>) auxStorage.getValue("Operator Set");
+                    auxClientSet.add(this.nickName);
                 } catch (InstantiationException e) {
                     System.out.println("La contraseña debe tener un tamaño mínimo de 8 caracteres y uno máximod de 12\nPulsa enter para reintentarlo");
                     inputs.nextLine();
@@ -42,6 +47,10 @@ public class ScreenSignUp extends Screen{
                 try {
                     newUser = newClientCreator.build();
                     userManager.create("User:"+this.nickName,newUser);
+                    Storage auxStorage = Storage.getInstance();
+                    HashSet<String> auxClientSet = (HashSet<String>) auxStorage.getValue("Client Set");
+                    auxClientSet.add(this.nickName);
+                    new ScreenClientMenu("Inicio cliente", newUser);
                 } catch (InstantiationException e) {
                     System.out.println("La contraseña debe tener un tamaño mínimo de 8 caracteres y uno máximod de 12\nPulsa enter para reintentarlo");
                     inputs.nextLine();
@@ -61,7 +70,6 @@ public class ScreenSignUp extends Screen{
 
     @Override
     public void loadOptions() {
-        System.out.println("Registrarse");
         System.out.print("Nombre: ");
         this.name = inputs.nextLine();
         System.out.print("Usuario: ");

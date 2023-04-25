@@ -1,8 +1,10 @@
 package screen;
 
+import storage.Storage;
 import user.User;
 import user.UserManager;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class ScreenLogin extends Screen{
@@ -20,7 +22,12 @@ public class ScreenLogin extends Screen{
         UserManager userManager = new UserManager();
         if (userManager.checkUser(this.nickName,this.password)){
             User user = userManager.getUser(this.nickName);
-            //TODO Profile's screen.
+            HashSet<String> clientSet = (HashSet<String>) Storage.getInstance().getValue("Client Set");
+            if (clientSet.contains(this.nickName)){
+                new ScreenClientMenu("Inicio cliente", userManager.getUser("User:"+this.nickName));
+            }else{
+                //TODO Operator menu
+            }
         } else {
             System.out.println("Usuario o contraseña incorrectos\nPulsa enter para iniciar sesión");
             inputs.nextLine();

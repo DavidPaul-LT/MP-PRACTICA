@@ -3,6 +3,8 @@ package user;
 import interfaces.Factory;
 import storage.Storage;
 
+import java.util.HashSet;
+
 
 public class UserManager implements Factory {
     private static final String USER = "User:";
@@ -17,6 +19,10 @@ public class UserManager implements Factory {
      */
     public void delete(String userNick){
         userStorage.deleteKey(USER + userNick);
+        HashSet<String> clientSet = (HashSet<String>) userStorage.getValue("Client Set");
+        clientSet.remove(userNick);
+        HashSet<String> operatorSet = (HashSet<String>) userStorage.getValue("Operator Set");
+        operatorSet.remove(userNick);
     }
 
     public User getUser(String nickName) {
