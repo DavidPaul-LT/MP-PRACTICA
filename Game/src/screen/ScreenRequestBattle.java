@@ -1,6 +1,8 @@
 package screen;
 
-public class ScreenRequestBattle extends Screen{
+import screen.General.Screen;
+
+public class ScreenRequestBattle extends Screen {
     public ScreenRequestBattle(String title) {
         super(title);
     }

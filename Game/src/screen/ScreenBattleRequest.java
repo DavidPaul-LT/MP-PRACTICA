@@ -1,5 +1,6 @@
 package screen;
 
+import screen.General.Screen;
 import user.Client;
 
 import java.util.Scanner;

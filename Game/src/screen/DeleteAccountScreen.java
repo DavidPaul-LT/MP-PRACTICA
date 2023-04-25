@@ -1,10 +1,11 @@
 package screen;
 
+import screen.General.Screen;
 import user.UserManager;
 
 import java.util.Scanner;
 
-public class DeleteAccountScreen extends Screen{
+public class DeleteAccountScreen extends Screen {
     private String userNick;
     private String userPassword;
     private Scanner scanner = new Scanner(System.in);

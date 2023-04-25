@@ -1,4 +1,4 @@
-package screen;
+package screen.General;
 
 public abstract class Screen {
     private String title;

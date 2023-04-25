@@ -1,15 +1,16 @@
 package screen;
 
+import screen.General.Screen;
 import user.Client;
 import user.User;
 
 import java.util.Scanner;
 
-public class ScreenClientMenu extends Screen{
+public class ScreenClientMenu extends Screen {
     private int option;
     private User user;
     private Scanner scanner = new Scanner(System.in);
-    protected ScreenClientMenu(String title, User user) {
+    public ScreenClientMenu(String title, User user) {
         super(title);
         this.user = user;
         this.loadOptions();

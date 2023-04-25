@@ -1,6 +1,8 @@
-package screen;
+package screen.General;
 
 import interfaces.Screen;
+import screen.General.LogInScreen;
+import screen.SignUpScreen;
 
 import java.util.Scanner;
 

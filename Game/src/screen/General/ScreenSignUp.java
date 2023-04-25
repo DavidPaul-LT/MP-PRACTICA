@@ -1,12 +1,17 @@
-package screen;
+package screen.General;
 
+import screen.General.Screen;
+import screen.ScreenClientMenu;
+import screen.ScreenLogin;
+import screen.ScreenMain;
+import screen.ScreenOperatorMenu;
 import storage.Storage;
 import user.*;
 
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class ScreenSignUp extends Screen{
+public class ScreenSignUp extends Screen {
     private String name;
     private String nickName;
     private String password;

@@ -1,4 +1,4 @@
-package screen;
+package screen.General;
 
 import user.Client;
 

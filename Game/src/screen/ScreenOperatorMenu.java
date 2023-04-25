@@ -1,17 +1,19 @@
 package screen;
 
+import screen.General.Screen;
+import screen.Operator.ScreenBanOrUnban;
 import user.Client;
 import user.Operator;
 import user.User;
 
 import java.util.Scanner;
 
-public class ScreenOperatorMenu extends Screen{
+public class ScreenOperatorMenu extends Screen {
     private int option;
     private Scanner scanner = new Scanner(System.in);
     private User user;
 
-    protected ScreenOperatorMenu(String title, User user) {
+    public ScreenOperatorMenu(String title, User user) {
         super(title);
         this.loadOptions();
         this.getOption();

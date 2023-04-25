@@ -1,6 +1,8 @@
 package screen;
 
-public class ScreenRanking extends Screen{
+import screen.General.Screen;
+
+public class ScreenRanking extends Screen {
     public ScreenRanking(String title) {
         super(title);
     }

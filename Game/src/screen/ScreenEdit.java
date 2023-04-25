@@ -1,6 +1,8 @@
 package screen;
 
-public class ScreenEdit extends Screen{
+import screen.General.Screen;
+
+public class ScreenEdit extends Screen {
     public ScreenEdit(String title) {
         super(title);
     }

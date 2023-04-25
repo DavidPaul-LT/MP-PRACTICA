@@ -1,6 +1,8 @@
 package screen;
 
-public class ScreenHistory extends Screen{
+import screen.General.Screen;
+
+public class ScreenHistory extends Screen {
     public ScreenHistory(String title) {
         super(title);
     }

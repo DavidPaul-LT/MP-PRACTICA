@@ -1,6 +1,9 @@
 package screen;
 
 import interfaces.Screen;
+import screen.Client.ClientMenuScreen;
+import screen.General.MainScreen;
+import screen.Operator.OperatorMenuScreen;
 import storage.Storage;
 import user.*;
 

@@ -1,6 +1,6 @@
 package main;
 
-import screen.Screen;
+import screen.General.Screen;
 import screen.ScreenMain;
 //import storage.Storage;
 

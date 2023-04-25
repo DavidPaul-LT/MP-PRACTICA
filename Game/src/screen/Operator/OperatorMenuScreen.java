@@ -1,7 +1,9 @@
-package screen;
+package screen.Operator;
 
 import interfaces.Screen;
-import main.Main;
+import screen.BanUnbanScreen;
+import screen.EditRoleScreen;
+import screen.General.MainScreen;
 import user.Operator;
 
 import java.util.Scanner;

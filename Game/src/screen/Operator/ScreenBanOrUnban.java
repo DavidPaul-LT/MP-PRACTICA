@@ -1,9 +1,10 @@
-package screen;
+package screen.Operator;
 
+import screen.General.Screen;
+import screen.ScreenOperatorMenu;
 import user.Operator;
 import user.UserManager;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class ScreenBanOrUnban extends Screen {

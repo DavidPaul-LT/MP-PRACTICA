@@ -1,6 +1,9 @@
 package screen;
 
 
+import screen.General.Screen;
+import screen.General.ScreenSignUp;
+
 import java.util.Scanner;
 
 public class ScreenMain extends Screen {

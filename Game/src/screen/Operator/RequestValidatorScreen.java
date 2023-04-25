@@ -1,4 +1,4 @@
-package screen;
+package screen.Operator;
 
 import user.Operator;
 

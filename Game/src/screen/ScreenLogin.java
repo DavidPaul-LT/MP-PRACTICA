@@ -1,5 +1,6 @@
 package screen;
 
+import screen.General.Screen;
 import storage.Storage;
 import user.User;
 import user.UserManager;
@@ -7,7 +8,7 @@ import user.UserManager;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class ScreenLogin extends Screen{
+public class ScreenLogin extends Screen {
     private String nickName;
     private String password;
     private Scanner inputs = new Scanner(System.in);

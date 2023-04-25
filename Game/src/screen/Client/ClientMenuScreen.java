@@ -1,6 +1,8 @@
-package screen;
+package screen.Client;
 
 import interfaces.Screen;
+import screen.General.CambatHistoryScreen;
+import screen.General.MainScreen;
 import user.Client;
 import user.User;
 

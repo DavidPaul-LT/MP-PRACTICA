@@ -1,8 +1,7 @@
-package screen;
+package screen.Client;
 
 import interfaces.Screen;
 import user.Client;
-import user.User;
 
 import java.util.Scanner;
 
