@@ -1,5 +1,6 @@
 package screen;
 
+import user.Client;
 import user.Operator;
 import user.User;
 
@@ -27,7 +28,7 @@ public class ScreenOperatorMenu extends Screen{
                 new ScreenEditRole("Editar Roll");
                 break;
             case 3:
-                new ScreenBattleRequest("Desafia");
+                new ScreenBattleRequest("Gestionar desafíos", (Client) this.user);
                 break;
             case 4:
                 new ScreenBanOrUnban("Administrar Cuenta", (Operator) this.user);
