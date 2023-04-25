@@ -2,6 +2,7 @@ package screen;
 
 import interfaces.Screen;
 import main.Main;
+import user.Client;
 import user.Operator;
 
 import java.util.Scanner;

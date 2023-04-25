@@ -5,7 +5,7 @@ import interfaces.Screen;
 import java.util.Scanner;
 
 public class MainScreen implements Screen {
-    public final String TITLE = "Bienvenido";
+    public static final String TITLE = "Bienvenido";
     public MainScreen(){
         this.loadOptions();
     }

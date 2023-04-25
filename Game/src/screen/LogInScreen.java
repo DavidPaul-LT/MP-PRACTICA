@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class LogInScreen implements Screen {
-    public static String TITLE = "Inicar sesión";
+    public static final String TITLE = "Inicar sesión";
     private Scanner scanner = new Scanner(System.in);
     private String nickName;
     private String password;
@@ -22,12 +22,11 @@ public class LogInScreen implements Screen {
     public void getOption() {
         UserManager userManager = new UserManager();
         if (userManager.checkUser(this.nickName,this.password)){
-            User user = userManager.getUser(this.nickName);
             HashSet<String> clientSet = (HashSet<String>) Storage.getInstance().getValue("Client Set");
             if (clientSet.contains(this.nickName)){
-                new ClientMenuScreen(user);
+                new ClientMenuScreen(userManager.getUser(this.nickName));
             }else {
-                new OperatorMenuScreen((Operator) user);
+                new OperatorMenuScreen((Operator) userManager.getUser(this.nickName));
             }
         }else {
             System.out.println("Usuario o contraseña incorrectos\nPulsa enter para iniciar sesión");

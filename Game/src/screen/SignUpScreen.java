@@ -23,6 +23,7 @@ public class SignUpScreen implements Screen {
         UserManager userManager = new UserManager();
         if (!userManager.checkUser(this.nickName,this.password)){
             User newUser;
+            Storage storage = Storage.getInstance();
             switch (isOperator){
                 case "S":
                     OperatorBuilder newOperator = new OperatorBuilder();
@@ -32,13 +33,12 @@ public class SignUpScreen implements Screen {
                     try {
                         newUser = newOperator.build();
                         userManager.create("User:"+this.nickName,newUser);
-                        HashSet<String> operatorSet = (HashSet<String>) Storage.getInstance().getValue("Operator Set");
-                        operatorSet.add(this.nickName);
-                        Storage.getInstance().setValue("Operator Set",operatorSet);
+                        userManager.addInOperatorSet(this.nickName);
                         new OperatorMenuScreen((Operator) newUser);
                     } catch (InstantiationException e) {
                         this.invalidSignUp();
                     }
+                    break;
                 case "N":
                     ClientBuilder newClient = new ClientBuilder();
                     newClient.setName(this.name);
@@ -46,13 +46,13 @@ public class SignUpScreen implements Screen {
                     newClient.setPassword(this.password);
                     try {
                         newUser = newClient.build();
-                        HashSet<String> clientSet = (HashSet<String>) Storage.getInstance().getValue("Client Set");
-                        clientSet.add(this.nickName);
-                        Storage.getInstance().setValue("Client Set",newUser);
+                        userManager.create("User:"+this.nickName,newUser);
+                        userManager.addInClientSet(this.nickName);
                         new ClientMenuScreen(newUser);
                     } catch (InstantiationException e) {
                         this.invalidSignUp();
                     }
+                    break;
                 default:
                     System.out.println("Registro fallido");
                     scanner.nextLine();

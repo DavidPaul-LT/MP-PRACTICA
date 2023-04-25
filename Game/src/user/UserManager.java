@@ -8,6 +8,8 @@ import java.util.HashSet;
 
 public class UserManager implements Factory {
     private static final String USER = "User:";
+    private static final String CLIENTS = "Client Set";
+    private static final String OPERATORS = "Operator Set";
     protected Storage userStorage;
     public UserManager(){
         this.userStorage = Storage.getInstance();
@@ -24,7 +26,28 @@ public class UserManager implements Factory {
         HashSet<String> operatorSet = (HashSet<String>) userStorage.getValue("Operator Set");
         operatorSet.remove(userNick);
     }
-
+    public void addInClientSet(String userNick){
+        if ((!(userStorage.getValue(CLIENTS) instanceof HashSet<?>))){
+            HashSet<String> clientSet = new HashSet<>();
+            clientSet.add(userNick);
+            userStorage.setValue(CLIENTS,clientSet);
+        }else {
+            HashSet<String> clientSet = (HashSet<String>) userStorage.getValue(CLIENTS);
+            clientSet.add(userNick);
+            userStorage.setValue(CLIENTS,clientSet);
+        }
+    }
+    public void addInOperatorSet(String userNick){
+        if ((!(userStorage.getValue(OPERATORS) instanceof HashSet<?>))){
+            HashSet<String> operatorSet = new HashSet<>();
+            operatorSet.add(userNick);
+            userStorage.setValue(OPERATORS,operatorSet);
+        }else {
+            HashSet<String> operatorSet = (HashSet<String>) userStorage.getValue(OPERATORS);
+            operatorSet.add(userNick);
+            userStorage.setValue(OPERATORS,operatorSet);
+        }
+    }
     public User getUser(String nickName) {
         return (User) userStorage.getValue(USER + nickName);
     }
