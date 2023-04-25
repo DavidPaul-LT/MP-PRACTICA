@@ -17,7 +17,7 @@ public abstract class Screen {
         this.title = title;
     }
 
-    public abstract void getOption() throws InstantiationException;
+    public abstract void getOption();
 
     public abstract void loadOptions();
 

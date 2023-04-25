@@ -34,6 +34,7 @@ public class ScreenSignUp extends Screen{
                     Storage auxStorage = Storage.getInstance();
                     HashSet<String> auxClientSet = (HashSet<String>) auxStorage.getValue("Operator Set");
                     auxClientSet.add(this.nickName);
+                    new ScreenOperatorMenu("Inicio Operador",newUser);
                 } catch (InstantiationException e) {
                     System.out.println("La contraseña debe tener un tamaño mínimo de 8 caracteres y uno máximod de 12\nPulsa enter para reintentarlo");
                     inputs.nextLine();

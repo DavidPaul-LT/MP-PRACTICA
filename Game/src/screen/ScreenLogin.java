@@ -26,7 +26,7 @@ public class ScreenLogin extends Screen{
             if (clientSet.contains(this.nickName)){
                 new ScreenClientMenu("Inicio cliente", userManager.getUser("User:"+this.nickName));
             }else{
-                //TODO Operator menu
+                new ScreenOperatorMenu("Inicio Operador",userManager.getUser("User:"+this.nickName));
             }
         } else {
             System.out.println("Usuario o contraseña incorrectos\nPulsa enter para iniciar sesión");
