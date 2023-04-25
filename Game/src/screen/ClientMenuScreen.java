@@ -32,6 +32,7 @@ public class ClientMenuScreen implements Screen {
                 break;
             case 5:
                 new MainScreen();
+                break;
             default:
                 this.loadOptions();
         }
