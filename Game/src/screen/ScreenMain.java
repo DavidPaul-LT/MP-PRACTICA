@@ -10,7 +10,6 @@ public class ScreenMain extends Screen {
     public ScreenMain(String title) {
         super(title);
         this.loadOptions();
-        this.getOption();
     }
 
     @Override
@@ -26,17 +25,21 @@ public class ScreenMain extends Screen {
             case 3:
                 new DeleteAccountScreen("Borrar cuenta");
                 break;
+            case 4:
+                break;
             default:
-                System.out.println("Hasta pronto");
+                this.addSpacing();
+                this.loadOptions();
         }
     }
 
     @Override
     public void loadOptions() {
-        System.out.println("Bienvenido a Noche de batallas: el juego de rol multijugador");
         System.out.println("Registrarse [1]");
         System.out.println("Iniciar sesión [2]");
         System.out.println("Borrar cuenta [3]");
+        System.out.println("Salir de la app [4]");
         System.out.println("EXIT []");
+        this.getOption();
     }
 }

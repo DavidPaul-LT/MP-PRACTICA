@@ -38,8 +38,7 @@ public class Client extends User{
     }
     public Boolean sendBattleRequest(String challenged, int bet){
         Storage storageAccess = Storage.getInstance();
-        HashMap<String,HashMap<String, Serializable>> usersInStorageValue= (HashMap<String, HashMap<String, Serializable>>) storageAccess.getValue("Users");
-        Client challengedUser = (Client) usersInStorageValue.get("Clients").get(challenged);
+        Client challengedUser = (Client) storageAccess.getValue("User:"+challenged);
         if (challengedUser != null && challengedUser.isRequestable() && challengedUser.getGold() >= bet){
             BattleRequest newChallenge = new BattleRequest(this.nick,challenged,bet);
             HashMap<String,BattleRequest> requests = (HashMap<String, BattleRequest>) storageAccess.getValue("Battle requests");

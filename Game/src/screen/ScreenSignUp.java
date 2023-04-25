@@ -15,7 +15,6 @@ public class ScreenSignUp extends Screen{
     public ScreenSignUp(String title){
         super(title);
         this.loadOptions();
-        this.getOption();
     }
 
     @Override
@@ -34,11 +33,13 @@ public class ScreenSignUp extends Screen{
                     Storage auxStorage = Storage.getInstance();
                     HashSet<String> auxClientSet = (HashSet<String>) auxStorage.getValue("Operator Set");
                     auxClientSet.add(this.nickName);
+                    Storage.getInstance().setValue("Operator Set",auxClientSet);
                     new ScreenOperatorMenu("Inicio Operador",newUser);
                 } catch (InstantiationException e) {
                     System.out.println("La contraseña debe tener un tamaño mínimo de 8 caracteres y uno máximod de 12\nPulsa enter para reintentarlo");
                     inputs.nextLine();
-                    new ScreenSignUp("Introduce otra contraseña");
+                    this.addSpacing();
+                    this.loadOptions();
                 }
             }else if (this.isOperator.equals("N")){
                 ClientBuilder newClientCreator = new ClientBuilder();
@@ -51,11 +52,13 @@ public class ScreenSignUp extends Screen{
                     Storage auxStorage = Storage.getInstance();
                     HashSet<String> auxClientSet = (HashSet<String>) auxStorage.getValue("Client Set");
                     auxClientSet.add(this.nickName);
+                    auxClientSet.add(this.nickName);
+                    Storage.getInstance().setValue("Client Set",auxClientSet);
                     new ScreenClientMenu("Inicio cliente", newUser);
                 } catch (InstantiationException e) {
                     System.out.println("La contraseña debe tener un tamaño mínimo de 8 caracteres y uno máximod de 12\nPulsa enter para reintentarlo");
-                    inputs.nextLine();
-                    new ScreenSignUp("Introduce otra contraseña");
+                    this.addSpacing();
+                    this.loadOptions();
                 }
             }else{
                 System.out.println("¿Cómo coño has llegado hasta aquí\nPulsa enter para volver");
@@ -79,6 +82,7 @@ public class ScreenSignUp extends Screen{
         this.password = inputs.nextLine();
         System.out.print("¿Será esta una cuenta de operador [S/N]: ");
         this.isOperator = inputs.nextLine();
+        this.getOption();
     }
 
 }

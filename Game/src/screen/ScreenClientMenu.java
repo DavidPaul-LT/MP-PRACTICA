@@ -1,5 +1,6 @@
 package screen;
 
+import user.Client;
 import user.User;
 
 import java.util.Scanner;
@@ -10,9 +11,9 @@ public class ScreenClientMenu extends Screen{
     private Scanner scanner = new Scanner(System.in);
     protected ScreenClientMenu(String title, User user) {
         super(title);
+        this.user = user;
         this.loadOptions();
         this.getOption();
-        this.user = user;
     }
 
     @Override
@@ -25,7 +26,7 @@ public class ScreenClientMenu extends Screen{
                 //TODO eliminar role screen
                 break;
             case 3:
-                //TODO enviar desafío screen
+                new ScreenBattleRequest("Enviar desafío", (Client) this.user);
                 break;
             case 4:
                 //TODO historial screen
@@ -34,7 +35,7 @@ public class ScreenClientMenu extends Screen{
                 //TODO ranking screen
                 break;
             case 6:
-                Screen pantallaPrincipal = new ScreenMain("Bienvenido a Noche de batallas: el juego de rol multijugador");
+                new ScreenMain("Bienvenido a Noche de batallas: el juego de rol multijugador");
                 break;
             default:
                 new ScreenClientMenu("Inicio cliente",this.user);

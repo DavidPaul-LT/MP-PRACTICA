@@ -31,5 +31,6 @@ public class ScreenBattleRequest extends Screen {
             this.bet = scanner.nextInt();
         }
         while (!this.user.sendBattleRequest(this.challengedNick, this.bet));
+        new ScreenClientMenu("Inicio Cliente",this.user);
     }
 }

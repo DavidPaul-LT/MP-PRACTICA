@@ -14,7 +14,6 @@ public class ScreenLogin extends Screen{
     public ScreenLogin(String login) {
         super(login);
         this.loadOptions();
-        this.getOption();
     }
 
     @Override
@@ -24,9 +23,9 @@ public class ScreenLogin extends Screen{
             User user = userManager.getUser(this.nickName);
             HashSet<String> clientSet = (HashSet<String>) Storage.getInstance().getValue("Client Set");
             if (clientSet.contains(this.nickName)){
-                new ScreenClientMenu("Inicio cliente", userManager.getUser("User:"+this.nickName));
+                new ScreenClientMenu("Inicio cliente", userManager.getUser(this.nickName));
             }else{
-                new ScreenOperatorMenu("Inicio Operador",userManager.getUser("User:"+this.nickName));
+                new ScreenOperatorMenu("Inicio Operador",userManager.getUser(this.nickName));
             }
         } else {
             System.out.println("Usuario o contraseña incorrectos\nPulsa enter para iniciar sesión");
@@ -41,6 +40,7 @@ public class ScreenLogin extends Screen{
         this.nickName = inputs.nextLine();
         System.out.print("Constraseña: ");
         this.password = inputs.nextLine();
+        this.getOption();
     }
 
 }
