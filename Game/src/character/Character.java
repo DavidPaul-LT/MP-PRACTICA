@@ -29,7 +29,65 @@ public abstract class Character implements Master, Serializable {
     public void setActiveWeapon(Weapon w){
         this.activeWeapon = w;
     }
+    public Weapon getActiveWeapon(){
+        return this.activeWeapon;
+    }
     public void setActiveArmor(Armor a){
         this.activeArmor = a;
+    }
+    public Armor getActiveArmor(){
+        return this.activeArmor;
+    }
+
+    public int getHealth() {
+        return this.health;
+    }
+    public Skill getSkill(){
+        return this.specialAbility;
+    }
+
+
+    public List<Minion> getMinions() {
+        return this.minions;
+    }
+
+    public abstract int calculateAttackPotential();
+
+    public abstract int calculateDefensePotential();
+
+    public String getName() {
+        return name;
+    }
+
+    public Set<Weapon> getWeapons() {
+        return weapons;
+    }
+
+    public Set<Armor> getArmors() {
+        return armors;
+    }
+
+    public int getMIN_HEALTH() {
+        return MIN_HEALTH;
+    }
+
+    public int getMAX_HEALTH() {
+        return MAX_HEALTH;
+    }
+
+    public int getMIN_POWER() {
+        return MIN_POWER;
+    }
+
+    public int getMAX_POWER() {
+        return MAX_POWER;
+    }
+
+    public Set<Modifyer> getModifyers() {
+        return modifyers;
+    }
+
+    public int getPower() {
+        return power;
     }
 }

@@ -2,7 +2,7 @@ package modifyer;
 
 import java.io.Serializable;
 
-public class Modifyer implements Serializable {
+public abstract class Modifyer implements Serializable {
     private final String name;
     private final int MIN_VALUE;
     private final int MAX_VALUE;
@@ -28,19 +28,11 @@ public class Modifyer implements Serializable {
     public int getMAX_VALUE() {
         return MAX_VALUE;
     }
-    public int getValue() {
+    public int getValue(){
         return value;
     }
-    public Modifyer setName(String newName) {
-        return new Modifyer(newName);
-    }
-    public Modifyer setMinValue(int newValue) {
-        return new Modifyer(this.name,newValue,MAX_VALUE,this.value);
-    }
-    public Modifyer setMaxValue(int newValue) {
-        return new Modifyer(this.name,MIN_VALUE,newValue,this.value);
-    }
-    public Modifyer setValue(int newValue) {
-        return new Modifyer(this.name,MIN_VALUE,MAX_VALUE,newValue);
-    }
+    public abstract Modifyer setName(String newName);
+    public abstract Modifyer setMinValue(int newValue);
+    public abstract Modifyer setMaxValue(int newValue);
+    public abstract Modifyer setValue(int newValue);
 }

@@ -8,4 +8,9 @@ public class Discipline extends Skill{
     public Discipline(int bloodCost) {
         this.bloodCost = bloodCost;
     }
+
+    public int getBloodCost() {
+        return this.bloodCost;
+    }
+
 }

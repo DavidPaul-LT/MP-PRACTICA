@@ -8,4 +8,11 @@ public abstract class Equipment implements Serializable {
     private static final int MAX_MOD = 3;
     private int attackMod;
     private int defenseMod;
+
+    public int getAttackMod(){
+        return this.attackMod;
+    }
+    public int getDefenseMod(){
+        return this.defenseMod;
+    }
 }
