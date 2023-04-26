@@ -93,7 +93,4 @@ public class Storage implements Serializable, Resetable {
         this.storageMap.remove(key);
         this.serialize();
     }
-    public void clear(){
-        this.storageMap.clear();
-    }
 }
