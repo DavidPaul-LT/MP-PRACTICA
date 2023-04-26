@@ -46,19 +46,11 @@ public class Vampire extends Character{
         return getAditionalPotential() + attackPotential;
     }
     public int calculateDefensePotential(){
-        Armor armor = getActiveArmor();
-        Weapon weapon = getActiveWeapon();
-        Discipline discipline = (Discipline) getSkill();
-        Set<Modifyer> modifyers = getModifyers();
-        int power = getPower();
-        int armorDef = armor.getDefenseMod();
-        int weaponDef = weapon.getDefenseMod();
-        int disciplineDef = useDefenseDiscipline(discipline);
-        int modsDef = 0;
-        for (Modifyer mod: modifyers){
+        int defensePotential = getPower() + getActiveArmor().getDefenseMod() + getActiveWeapon().getDefenseMod() + useDefenseDiscipline((Discipline) getSkill());
+        for (Modifyer mod: getModifyers()){
             int modDef = mod.getValue();
-            modsDef += modDef;
+            defensePotential += modDef;
         }
-        return power + armorDef + weaponDef + getAditionalPotential() + modsDef + disciplineDef;
+        return defensePotential + getAditionalPotential();
     }
 }
