@@ -1,9 +1,11 @@
-# MP-PRACTICA
-repositorio desarrollado para la asignatura "Metodología de la Programación" [URJC, 2º año]
+<h1>Noche de Batallas: El juego de rol
+multijugador</h1>
 
-
-EQUIPO:  
-·Cristian Andrei Vlad
-·David Cereceda Catalán
-·David Paul Limaylla Ticlavilca
-·[Irene Pérez Santiago]
+<p>Repositorio creado para la práctica de la asignatura de Metodología de la Programación.</p>
+<p>Integrantes:</p>
+<ul>
+<li>Cristian Andrei Vlad</li>
+<li>David Cereceda Catalán</li>
+<li>David Paúl Limaylla Ticlavinca</li>
+<li>Irene Pérez Santiago</li>
+</ul>
