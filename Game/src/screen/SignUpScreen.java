@@ -1,11 +1,9 @@
 package screen;
 
-import appUtils.Ranking;
+import app.utils.Ranking;
 import interfaces.Screen;
-import storage.Storage;
 import user.*;
 
-import java.util.HashSet;
 import java.util.Scanner;
 
 public class SignUpScreen implements Screen {

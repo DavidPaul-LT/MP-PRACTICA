@@ -1,4 +1,4 @@
-package appUtils;
+package app.utils;
 
 import interfaces.Resetable;
 import storage.Storage;
@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Ranking implements Serializable, Resetable {
+    private static final String RANKING_KEY = "Ranking";
     private static Ranking instance;
     private TreeMap<Integer, PriorityQueue<String>> rankingMap;
     private Map<String,Integer> invertedRanking;
@@ -21,7 +22,7 @@ public class Ranking implements Serializable, Resetable {
      */
     public static Ranking getInstance(){
         if (instance == null){
-            instance = (Ranking) Storage.getInstance().getValue("Ranking");
+            instance = (Ranking) Storage.getInstance().getValue(RANKING_KEY);
             if(instance == null){
                 instance = new Ranking();
             }
@@ -64,7 +65,7 @@ public class Ranking implements Serializable, Resetable {
             newQueue.add(userNick);
             this.rankingMap.put(userScore,newQueue);
         }
-        Storage.getInstance().setValue("Ranking",instance);
+        Storage.getInstance().setValue(RANKING_KEY,instance);
     }
 
     /**
@@ -76,6 +77,6 @@ public class Ranking implements Serializable, Resetable {
         PriorityQueue<String> scoreLevel = this.rankingMap.get(score);
         scoreLevel.remove(userNick);
         this.invertedRanking.remove(userNick);
-        Storage.getInstance().setValue("Ranking",instance);
+        Storage.getInstance().setValue(RANKING_KEY,instance);
     }
 }

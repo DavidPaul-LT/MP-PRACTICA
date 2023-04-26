@@ -38,17 +38,17 @@ public class Battle {
                 case "character2":
                     hp1--;
                     break;
+                default:
+                    break;
             }
             roundNumber++;
         }
 
     }
-    //poner un metodo para actualizar atributos de personajes (rabia, sangre, etc)
 
     private int calculateHp(Character character) {
         int hp = character.getHealth();
-        List<Minion> minions = character.getMinions();
-        for (Minion minion : minions) {
+        for (Minion minion : character.getMinions()) {
             hp += minion.getHealth();
         }
         return hp;
@@ -81,8 +81,6 @@ public class Battle {
             return "none";
         }
     }
-
-
 
     public int calculateSuccess(int potential){
         Random random = new Random();

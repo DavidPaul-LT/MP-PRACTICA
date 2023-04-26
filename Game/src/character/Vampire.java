@@ -15,8 +15,7 @@ public class Vampire extends Character{
     public int getAditionalPotential(){
         if(bloodPoints >= 5){
             return 2;
-        }
-        else {
+        }else {
             return 0;
         }
     }
@@ -26,9 +25,7 @@ public class Vampire extends Character{
             bloodPoints -= bloodCost;
             return discipline.getAttackValue();
         }
-        else {
-            return 0;
-        }
+        return 0;
     }
     //Falta hacer que en el combate, si el ataque del vampiro tiene exito, se le sumen 4 puntos de sangre
     public int useDefenseDiscipline(Discipline discipline){
@@ -37,26 +34,16 @@ public class Vampire extends Character{
             bloodPoints -= bloodCost;
             return discipline.getDefenseValue();
         }
-        else {
-            return 0;
-        }
+        return 0;
     }
 
     public int calculateAttackPotential(){
-        Armor armor = getActiveArmor();
-        Weapon weapon = getActiveWeapon();
-        Discipline discipline = (Discipline) getSkill();
-        Set<Modifyer> modifyers = getModifyers();
-        int power = getPower();
-        int armorAtt = armor.getAttackMod();
-        int weaponAtt = weapon.getAttackMod();
-        int disciplineAtt = useAttackDiscipline(discipline);
-        int modsAtt = 0;
-        for (Modifyer mod: modifyers){
+        int attackPotential = getPower() + getActiveArmor().getAttackMod() + getActiveWeapon().getAttackMod() + useAttackDiscipline((Discipline) getSkill());
+        for (Modifyer mod: getModifyers()){
             int modAtt = mod.getValue();
-            modsAtt += modAtt;
+            attackPotential += modAtt;
         }
-        return power + armorAtt + weaponAtt + getAditionalPotential() + modsAtt + disciplineAtt;
+        return getAditionalPotential() + attackPotential;
     }
     public int calculateDefensePotential(){
         Armor armor = getActiveArmor();

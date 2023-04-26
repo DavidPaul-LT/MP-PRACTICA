@@ -19,11 +19,11 @@ public abstract class Character implements Master, Serializable {
     private Set<Armor> armors;
     private Armor activeArmor;
     private List<Minion> minions;
-    private final int MIN_HEALTH = 0;
-    private final int MAX_HEALTH = 5;
+    private static final int MIN_HEALTH = 0;
+    private static final int MAX_HEALTH = 5;
     private int health;
-    private final int MIN_POWER = 0;
-    private final int MAX_POWER = 3;
+    private static final int MIN_POWER = 0;
+    private static final int MAX_POWER = 3;
     private int power;
     private Set<Modifyer> modifyers;
     public void setActiveWeapon(Weapon w){
@@ -67,19 +67,19 @@ public abstract class Character implements Master, Serializable {
         return armors;
     }
 
-    public int getMIN_HEALTH() {
+    public int getMinHealth() {
         return MIN_HEALTH;
     }
 
-    public int getMAX_HEALTH() {
+    public int getMaxHealth() {
         return MAX_HEALTH;
     }
 
-    public int getMIN_POWER() {
+    public int getMinPower() {
         return MIN_POWER;
     }
 
-    public int getMAX_POWER() {
+    public int getMaxPower() {
         return MAX_POWER;
     }
 

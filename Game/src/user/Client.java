@@ -1,13 +1,12 @@
 package user;
 
-import appUtils.PlayerCharacter;
-import appUtils.Ranking;
+import app.utils.PlayerCharacter;
+import app.utils.Ranking;
 import battle.*;
 import equipment.Armor;
 import equipment.Weapon;
 import storage.Storage;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 

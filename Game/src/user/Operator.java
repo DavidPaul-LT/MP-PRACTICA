@@ -1,11 +1,9 @@
 package user;
 
-import appUtils.GeneralFactory;
+import app.utils.GeneralFactory;
 import battle.BattleRequest;
 import storage.Storage;
 
-import java.io.Serializable;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
