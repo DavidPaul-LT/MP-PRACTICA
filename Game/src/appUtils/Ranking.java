@@ -1,12 +1,10 @@
 package appUtils;
 
 import interfaces.Resetable;
+import storage.Storage;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Ranking implements Serializable, Resetable {
     private static Ranking instance;
@@ -23,10 +21,17 @@ public class Ranking implements Serializable, Resetable {
      */
     public static Ranking getInstance(){
         if (instance == null){
-            instance = new Ranking();
+            instance = (Ranking) Storage.getInstance().getValue("Ranking");
+            if(instance == null){
+                instance = new Ranking();
+            }
             return instance;
         }
         return instance;
+    }
+
+    public NavigableSet<Integer> getRankingValues(){
+        return instance.rankingMap.navigableKeySet().descendingSet();
     }
 
     /**
@@ -59,7 +64,7 @@ public class Ranking implements Serializable, Resetable {
             newQueue.add(userNick);
             this.rankingMap.put(userScore,newQueue);
         }
-
+        Storage.getInstance().setValue("Ranking",instance);
     }
 
     /**
@@ -71,5 +76,6 @@ public class Ranking implements Serializable, Resetable {
         PriorityQueue<String> scoreLevel = this.rankingMap.get(score);
         scoreLevel.remove(userNick);
         this.invertedRanking.remove(userNick);
+        Storage.getInstance().setValue("Ranking",instance);
     }
 }

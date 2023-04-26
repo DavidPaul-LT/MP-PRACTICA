@@ -1,5 +1,6 @@
 package screen;
 
+import appUtils.Ranking;
 import interfaces.Screen;
 import storage.Storage;
 import user.*;
@@ -23,7 +24,6 @@ public class SignUpScreen implements Screen {
         UserManager userManager = new UserManager();
         if (!userManager.checkUser(this.nickName,this.password)){
             User newUser;
-            Storage storage = Storage.getInstance();
             switch (isOperator){
                 case "S":
                     OperatorBuilder newOperator = new OperatorBuilder();
@@ -46,6 +46,7 @@ public class SignUpScreen implements Screen {
                     newClient.setPassword(this.password);
                     try {
                         newUser = newClient.build();
+                        Ranking.getInstance().setUserScore(this.nickName,0);
                         userManager.create("User:"+this.nickName,newUser);
                         userManager.addInClientSet(this.nickName);
                         new ClientMenuScreen(newUser);
