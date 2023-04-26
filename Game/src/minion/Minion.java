@@ -11,4 +11,8 @@ public abstract class Minion implements Serializable {
         this.name = name;
         this.health = this.MAX_HEALTH;
     }
+
+    public int getHealth(){
+        return health;
+    }
 }

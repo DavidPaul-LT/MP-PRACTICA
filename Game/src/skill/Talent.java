@@ -1,4 +1,5 @@
 package skill;
 
-public class Talent {
+public class Talent extends Skill{
+
 }

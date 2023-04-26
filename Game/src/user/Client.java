@@ -3,6 +3,7 @@ package user;
 import appUtils.PlayerCharacter;
 import appUtils.Ranking;
 import battle.*;
+import character.Character;
 import equipment.*;
 import storage.Storage;
 
@@ -12,7 +13,7 @@ import java.util.Set;
 
 public class Client extends User{
     private final String REG_NUMBER;
-    private PlayerCharacter character;
+    private PlayerCharacter playerCharacter;
     private int gold;
     private List<BattleResume> history;
     private BattleRequest challenge;
@@ -29,10 +30,10 @@ public class Client extends User{
     }
 
     public void setActiveWeapon(Weapon w){
-        character.setActiveWeapon(w);
+        playerCharacter.setActiveWeapon(w);
     }
     public void setActiveArmor(Armor a){
-        character.setActiveArmor(a);
+        playerCharacter.setActiveArmor(a);
     }
 
     /**
@@ -61,5 +62,9 @@ public class Client extends User{
     }
     public Set<Client> checkGlobalRanking(){
         return Ranking.getInstance().getRanking();
+    }
+    public Character getPlayerCharacter(){
+        Character character = playerCharacter.getCharacter();
+        return character;
     }
 }

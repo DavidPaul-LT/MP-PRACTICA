@@ -1,15 +1,26 @@
 package battle;
 
+import minion.Minion;
+import character.Character;
+import user.Client;
+
 import java.util.Random;
+import java.util.List;
 
 public class Battle {
     private int roundNumber;
-
-    public void fight(character1, character2){
+    private Client challenger;
+    private Client challenged;
+    public void startFight(){
+        Character character1 = challenger.getPlayerCharacter(); //character1 es el que hace el desafio
+        Character character2 = challenged.getPlayerCharacter(); //character2 es el que acepta el desafio
+        fight(character1, character2);
+    }
+    public void fight(Character character1, Character character2){
         int hp1 = calculateHp(character1);
         int hp2 = calculateHp(character2);
-        while (hp1 != 0 and hp2 != 0){
-            roundWinner = playRound(character1, character2);
+        while (hp1 != 0 && hp2 != 0){
+            String roundWinner = playRound(character1, character2);
             switch (roundWinner) {
                 case "both":
                     hp1--;
@@ -22,12 +33,32 @@ public class Battle {
                     hp1--;
                     break;
             }
-            roundNumber++
+            roundNumber++;
         }
 
     }
+    //poner un metodo para actualizar atributos de personajes (rabia, sangre, etc)
 
-    public string playRound(character1, character2){
+    private int calculateHp(Character character) {
+        int hp = character.getHealth();
+        List<Minion> minions = character.getMinions();
+        for (Minion minion : minions) {
+            hp += minion.getHealth();
+        }
+        return hp;
+    }
+
+    private int calculateAttackPotential(Character character) {
+        int attPot = character.calculateAttackPotential();
+        return attPot;
+    }
+
+    private int calculateDefensePotential(Character character) {
+        int defPot = character.calculateDefensePotential();
+        return defPot;
+    }
+
+    public String playRound(Character character1, Character character2){
         int potAt1 = calculateAttackPotential(character1);
         int potAt2 = calculateAttackPotential(character2);
         int potDf1 = calculateDefensePotential(character1);
@@ -49,7 +80,9 @@ public class Battle {
 
     }
 
-    public int calculateSuccess(potential){
+
+
+    public int calculateSuccess(int potential){
         Random random = new Random();
         int hits = 0;
         for (int i = 0; i < potential; i++) {
@@ -58,6 +91,7 @@ public class Battle {
                 hits++;
             }
         }
+        return hits;
     }
 
     public BattleResume giveBattleResume(){return null;}
