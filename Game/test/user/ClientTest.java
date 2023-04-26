@@ -11,7 +11,7 @@ class ClientTest {
     void clientCorrectInstantiationTest() throws InstantiationException {
         String regNumber = "123ABC";
         String name = "Paul";
-        String nick = "Paulinux";
+        String nick = "Pablimux";
         String validPassword = "Qwerty1234";
         ClientBuilder clientBuilder = new ClientBuilder();
         clientBuilder.setRegNumber(regNumber);
