@@ -1,7 +1,9 @@
 package screen;
 
 import interfaces.Screen;
+import storage.Storage;
 import user.Client;
+import user.ClientBuilder;
 import user.User;
 
 import java.util.Scanner;
@@ -40,14 +42,44 @@ public class ClientMenuScreen implements Screen {
                 this.loadOptions();
         }
     }
-
+    private void loadChallengeOptions(){
+        System.out.println("¡Tienes un desafío pendiente!");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("¿Aceptas el desafío? [S/N]");
+        switch (scanner.nextLine()){
+            case "S":
+                new PreBattleScreen(this.user.getChallenge());
+                break;
+            case "N":
+                ClientBuilder clientBuilder = new ClientBuilder();
+                clientBuilder.setChallenge(null);
+                clientBuilder.setRegNumber(this.user.getRegNumber());
+                clientBuilder.setName(this.user.getName());
+                clientBuilder.setNick(this.user.getNick());
+                clientBuilder.setGold(this.user.getGold());
+                clientBuilder.setPassword(this.user.getPassword());
+                clientBuilder.setCharacter(this.user.getCharacter());
+                clientBuilder.setBattleHistory(this.user.getBattleHistory());
+                try {
+                    Client newClient = (Client) clientBuilder.build();
+                    Storage.getInstance().setValue("User:"+this.user.getNick(),newClient);
+                    new ClientMenuScreen(newClient);
+                } catch (InstantiationException e) {
+                    System.out.print("Ocurrió un error al actualizar el estado del desafío pendiente");
+                }
+                break;
+            default:
+                this.loadOptions();
+        }
+    }
     @Override
     public void loadOptions() {
         Screen.addSpacing();
-        System.out.println(TITLE);
         if (user.getChallenge() != null){
-            System.out.println("Tienes una batalla pendiente");
+            this.loadChallengeOptions();
         }
+        Screen.addSpacing();
+        System.out.println(TITLE);
         System.out.println("Personalizar rol [1]");
         System.out.println("Desafiar [2]");
         System.out.println("Mis combates [3]");
