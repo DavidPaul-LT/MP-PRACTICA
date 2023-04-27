@@ -8,9 +8,7 @@ import equipment.Weapon;
 import storage.Storage;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 public class Client extends User{
@@ -43,9 +41,9 @@ public class Client extends User{
         Client challengedUser = (Client) storageAccess.getValue("User:"+challenged);
         if (challengedUser != null && challengedUser.isRequestable() && challengedUser.getGold() >= bet){
             BattleRequest newChallenge = new BattleRequest(this.nick,challenged,bet);
-            List<BattleRequest> pendingRequests = (List<BattleRequest>) storageAccess.getValue(REQUEST_KEY);
+            Deque<BattleRequest> pendingRequests = (Deque<BattleRequest>) storageAccess.getValue(REQUEST_KEY);
             if (pendingRequests == null){
-                pendingRequests = new ArrayList<>();
+                pendingRequests = new ArrayDeque<>();
             }
             pendingRequests.add(newChallenge);
             storageAccess.setValue(REQUEST_KEY, (Serializable) pendingRequests);

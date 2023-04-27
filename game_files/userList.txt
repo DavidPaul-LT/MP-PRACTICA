@@ -1,0 +1,4 @@
+[Operator] Claudia - Contraseña
+[Client] Maria - Contraseña
+[Client] Alfonso - Contraseña
+Test 1: Maria envia BattleRequest a Alfonso y Claudia lo valida

@@ -3,7 +3,6 @@ package screen;
 import interfaces.Screen;
 import user.Client;
 import user.User;
-import user.UserManager;
 
 import java.util.Scanner;
 
@@ -46,6 +45,9 @@ public class ClientMenuScreen implements Screen {
     public void loadOptions() {
         Screen.addSpacing();
         System.out.println(TITLE);
+        if (user.getChallenge() != null){
+            System.out.println("Tienes una batalla pendiente");
+        }
         System.out.println("Personalizar rol [1]");
         System.out.println("Desafiar [2]");
         System.out.println("Mis combates [3]");
