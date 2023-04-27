@@ -1,6 +1,6 @@
 package screen;
 
-import app.utils.Ranking;
+import app_utils.Ranking;
 import interfaces.Screen;
 import user.Client;
 

@@ -1,7 +1,7 @@
 package user;
 
-import app.utils.PlayerCharacter;
-import app.utils.Ranking;
+import app_utils.PlayerCharacter;
+import app_utils.Ranking;
 import battle.*;
 import equipment.Armor;
 import equipment.Weapon;

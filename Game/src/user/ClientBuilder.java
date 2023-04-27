@@ -1,6 +1,6 @@
 package user;
 
-import app.utils.PlayerCharacter;
+import app_utils.PlayerCharacter;
 import battle.BattleRequest;
 import battle.BattleResume;
 import interfaces.UserBuilder;

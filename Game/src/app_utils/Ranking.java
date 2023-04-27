@@ -1,4 +1,4 @@
-package app.utils;
+package app_utils;
 
 import interfaces.Resetable;
 import storage.Storage;

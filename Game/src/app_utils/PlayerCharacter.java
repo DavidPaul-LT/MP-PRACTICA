@@ -1,4 +1,4 @@
-package app.utils;
+package app_utils;
 
 import equipment.Armor;
 import equipment.Weapon;

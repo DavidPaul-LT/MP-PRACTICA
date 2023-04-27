@@ -1,6 +1,6 @@
 package user;
 
-import app.utils.GeneralFactory;
+import app_utils.GeneralFactory;
 import battle.BattleRequest;
 import storage.Storage;
 

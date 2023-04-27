@@ -1,6 +1,6 @@
 package user;
 
-import app.utils.GeneralFactory;
+import app_utils.GeneralFactory;
 import interfaces.UserBuilder;
 
 public class OperatorBuilder implements UserBuilder {
