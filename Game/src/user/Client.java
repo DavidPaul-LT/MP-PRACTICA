@@ -7,11 +7,14 @@ import equipment.Armor;
 import equipment.Weapon;
 import storage.Storage;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 
 public class Client extends User{
+    private static final String REQUEST_KEY = "Battle requests";
     private final String regNumber;
     private PlayerCharacter character;
     private final int gold;
@@ -40,11 +43,12 @@ public class Client extends User{
         Client challengedUser = (Client) storageAccess.getValue("User:"+challenged);
         if (challengedUser != null && challengedUser.isRequestable() && challengedUser.getGold() >= bet){
             BattleRequest newChallenge = new BattleRequest(this.nick,challenged,bet);
-            HashMap<String,BattleRequest> requests = (HashMap<String, BattleRequest>) storageAccess.getValue("Battle requests");
-            if (requests == null){
-                requests = new HashMap<>();
+            List<BattleRequest> pendingRequests = (List<BattleRequest>) storageAccess.getValue(REQUEST_KEY);
+            if (pendingRequests == null){
+                pendingRequests = new ArrayList<>();
             }
-            requests.put("Battle requests",newChallenge);
+            pendingRequests.add(newChallenge);
+            storageAccess.setValue(REQUEST_KEY, (Serializable) pendingRequests);
             return true;
         }
         return false;
