@@ -20,25 +20,22 @@ public class Operator extends User{
     public void editEntity(String category, String name){}
     public void validateBattleRequest(BattleRequest b){
         UserManager userManager = new UserManager();
-        Client[] clients = {(Client) userManager.getUser(b.getChallenging()), (Client) userManager.getUser(b.getChallenging())};
-        for (Client user:clients) {
-            ClientBuilder clientBuilder = new ClientBuilder();
-            clientBuilder.setPassword(user.getPassword());
-            clientBuilder.setNick(user.getNick());
-            clientBuilder.setName(user.getName());
-            clientBuilder.setGold(user.getGold());
-            clientBuilder.setBattleHistory(user.getBattleHistory());
-            clientBuilder.setChallenge(b);
-            clientBuilder.setCharacter(user.getCharacter());
-            clientBuilder.setRegNumber(user.getRegNumber());
-            try {
-                Client finalClient = (Client) clientBuilder.build();
-                storage.setValue("User:"+user.getNick(),finalClient);
-            } catch (InstantiationException e) {
-                throw new RuntimeException(e); // It is almost impossible to reach this statement
-            }
+        Client user = (Client) userManager.getUser(b.getChallenged());
+        ClientBuilder clientBuilder = new ClientBuilder();
+        clientBuilder.setPassword(user.getPassword());
+        clientBuilder.setNick(user.getNick());
+        clientBuilder.setName(user.getName());
+        clientBuilder.setGold(user.getGold());
+        clientBuilder.setBattleHistory(user.getBattleHistory());
+        clientBuilder.setChallenge(b);
+        clientBuilder.setCharacter(user.getCharacter());
+        clientBuilder.setRegNumber(user.getRegNumber());
+        try {
+            Client finalClient = (Client) clientBuilder.build();
+            storage.setValue("User:"+user.getNick(),finalClient);
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e); // It is almost impossible to reach this statement
         }
-
     }
     public void banUser(String nick){
         Set<String> bannedList = (Set<String>) this.storage.getValue("Banned clients");
