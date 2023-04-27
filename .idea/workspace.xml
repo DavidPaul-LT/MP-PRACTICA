@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8a130c3c-24f5-4450-9704-e948334ec6ec" name="Changes" comment="TODO PreBattleScreen">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_04_2023_18_49__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Storage.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/out/production/Storage/main/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/out/production/Storage/main/Minion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/out/production/Storage/main/Storage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/app_utils/GeneralFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/app_utils/PlayerCharacter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/app_utils/Ranking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/battle/Battle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/battle/BattleRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/battle/BattleResume.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/battle/BattleResumeBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/character/Character.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/character/CharacterFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/character/Hunter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/character/HunterFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/character/Vampire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/character/VampireFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/character/Werewolf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/character/WerewolfFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/equipment/Armor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/equipment/ArmorFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/equipment/Equipment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/equipment/EquipmentFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/equipment/Weapon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/equipment/WeaponFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/interfaces/Factory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/interfaces/Master.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/interfaces/Resetable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/interfaces/Screen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/interfaces/UserBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/main/GameRunner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/minion/Demon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/minion/DemonFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/minion/Ghoul.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/minion/GhoulFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/minion/Human.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/minion/HumanFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/minion/HumanLoyalty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/minion/Minion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/minion/MinionFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/minion/Pact.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/modifyer/Fortress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/modifyer/FortressFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/modifyer/Modifyer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/modifyer/ModifyerFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/modifyer/Weakness.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/modifyer/WeaknessFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/BanUnbanScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/BattleRequestScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/CambatHistoryScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/ClientMenuScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/DeleteAccountScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/EditRoleScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/EditStorageScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/LogInScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/MainScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/OperatorMenuScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/PreBattleScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/RankingScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/RequestValidatorScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/screen/SignUpScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/skill/Discipline.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/skill/DisciplineFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/skill/Gift.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/skill/GiftFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/skill/Skill.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/skill/SkillFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/skill/Talent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/skill/TalentFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/storage/Storage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/user/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/user/ClientBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/user/Operator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/user/OperatorBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/user/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/src/user/UserManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/test/app_utils/RankingTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/test/storage/StorageTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/test/user/ClientBuilderTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/test/user/ClientTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP-PRACTICA" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Cristian" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2P05hhx2a53L0ja9Iu8OZ5fFH3E" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="screen" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="MP-PRACTICA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8a130c3c-24f5-4450-9704-e948334ec6ec" name="Changes" comment="" />
+      <created>1682581279959</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682581279959</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Test commit">
+      <created>1682581480848</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682581480848</updated>
+    </task>
+    <task id="LOCAL-00002" summary="BattleRequest creation update">
+      <created>1682582297101</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682582297101</updated>
+    </task>
+    <task id="LOCAL-00003" summary="BattleRequest operator validation done&#10;-Missing challenged approval">
+      <created>1682584567533</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682584567533</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Minor bug fixed at Client BattleRequest notification">
+      <created>1682585437495</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682585437495</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Recovered challenged user approval of battle request">
+      <created>1682586607570</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682586607570</updated>
+    </task>
+    <task id="LOCAL-00006" summary="TODO PreBattleScreen">
+      <created>1682586867978</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682586867978</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test commit" />
+    <MESSAGE value="BattleRequest creation update" />
+    <MESSAGE value="BattleRequest operator validation done&#10;-Missing challenged approval" />
+    <MESSAGE value="Minor bug fixed at Client BattleRequest notification" />
+    <MESSAGE value="Recovered challenged user approval of battle request" />
+    <MESSAGE value="TODO PreBattleScreen" />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO PreBattleScreen" />
+  </component>
+</project>
