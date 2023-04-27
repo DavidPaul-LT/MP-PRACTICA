@@ -16,6 +16,7 @@ public abstract class Character implements Master, Serializable {
     private Skill specialAbility;
     private Set<Weapon> weapons;
     private Weapon activeWeapon;
+    private Weapon activeWeapon2;
     private Set<Armor> armors;
     private Armor activeArmor;
     private List<Minion> minions;
@@ -32,6 +33,7 @@ public abstract class Character implements Master, Serializable {
     public Weapon getActiveWeapon(){
         return this.activeWeapon;
     }
+    public Weapon getActiveWeapon2(){ return this.activeWeapon2;}
     public void setActiveArmor(Armor a){
         this.activeArmor = a;
     }
@@ -54,6 +56,9 @@ public abstract class Character implements Master, Serializable {
     public abstract int calculateAttackPotential();
 
     public abstract int calculateDefensePotential();
+    public abstract void damaged();
+    public abstract void successAttack();
+    public abstract int getAtribute();
 
     public String getName() {
         return name;

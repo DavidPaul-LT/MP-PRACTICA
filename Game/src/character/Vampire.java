@@ -10,7 +10,7 @@ import java.util.Set;
 public class Vampire extends Character{
     private final int MIN_BLOOD = 0;
     private final int MAX_BLOOD = 10;
-    private int bloodPoints;
+    private int bloodPoints = MIN_BLOOD;
     private int age;
     public int getAditionalPotential(){
         if(bloodPoints >= 5){
@@ -38,27 +38,38 @@ public class Vampire extends Character{
     }
 
     public int calculateAttackPotential(){
-        int attackPotential = getPower() + getActiveArmor().getAttackMod() + getActiveWeapon().getAttackMod() + useAttackDiscipline((Discipline) getSkill());
+        int attackPotential = getPower() + getActiveArmor().getAttackMod() + getActiveWeapon().getAttackMod() + getActiveWeapon2().getAttackMod() + useAttackDiscipline((Discipline) getSkill());
         for (Modifyer mod: getModifyers()){
             int modAtt = mod.getValue();
             attackPotential += modAtt;
         }
         return getAditionalPotential() + attackPotential;
     }
-    public int calculateDefensePotential(){
-        Armor armor = getActiveArmor();
-        Weapon weapon = getActiveWeapon();
-        Discipline discipline = (Discipline) getSkill();
-        Set<Modifyer> modifyers = getModifyers();
-        int power = getPower();
-        int armorDef = armor.getDefenseMod();
-        int weaponDef = weapon.getDefenseMod();
-        int disciplineDef = useDefenseDiscipline(discipline);
-        int modsDef = 0;
-        for (Modifyer mod: modifyers){
+    public int calculateDefensePotential() {
+        int defensePotential = getPower() + getActiveArmor().getDefenseMod() + getActiveWeapon().getDefenseMod() + getActiveWeapon2().getDefenseMod() + useDefenseDiscipline((Discipline) getSkill());
+        for (Modifyer mod : getModifyers()) {
             int modDef = mod.getValue();
-            modsDef += modDef;
+            defensePotential += modDef;
         }
-        return power + armorDef + weaponDef + getAditionalPotential() + modsDef + disciplineDef;
+        return getAditionalPotential() + defensePotential;
+    }
+
+    @Override
+    public void damaged() {
+    }
+
+    @Override
+    public void successAttack() {
+        if (bloodPoints + 4 <= MAX_BLOOD){
+            bloodPoints += 4;
+        }
+        else{
+            bloodPoints = MAX_BLOOD;
+        }
+    }
+
+    @Override
+    public int getAtribute() {
+        return bloodPoints;
     }
 }

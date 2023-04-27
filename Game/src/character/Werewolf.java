@@ -3,7 +3,6 @@ package character;
 import equipment.Armor;
 import equipment.Weapon;
 import modifyer.Modifyer;
-import skill.Discipline;
 import skill.Gift;
 
 import java.util.Set;
@@ -11,7 +10,7 @@ import java.util.Set;
 public class Werewolf extends Character{
     private final int MIN_RAGE = 0;
     private final int MAX_RAGE = 3;
-    private int rage;
+    private int rage = MIN_RAGE;
     public int useAttackGift(Gift gift){
         int minRage = gift.getMinRageCost();
         if (rage >= minRage){
@@ -32,35 +31,35 @@ public class Werewolf extends Character{
         }
     }
     public int calculateAttackPotential(){
-        Armor armor = getActiveArmor();
-        Weapon weapon = getActiveWeapon();
-        Gift gift = (Gift) getSkill();
-        Set<Modifyer> modifyers = getModifyers();
-        int power = getPower();
-        int armorAtt = armor.getAttackMod();
-        int weaponAtt = weapon.getAttackMod();
-        int giftAtt = useAttackGift(gift);
-        int modsAtt = 0;
-        for (Modifyer mod: modifyers){
-            int modAtt = mod.getValue(); //No se si el metodo getValue de modificadores esta hecho
-            modsAtt += modAtt;
+        int attackPotential = rage + getPower() + getActiveArmor().getAttackMod() + getActiveWeapon().getAttackMod() + getActiveWeapon2().getAttackMod() + useAttackGift((Gift) getSkill());
+        for (Modifyer mod: getModifyers()){
+            int modAtt = mod.getValue();
+            attackPotential += modAtt;
         }
-        return power + armorAtt + weaponAtt + rage + modsAtt + giftAtt;
+        return attackPotential;
     }
     public int calculateDefensePotential(){
-        Armor armor = getActiveArmor();
-        Weapon weapon = getActiveWeapon();
-        Gift gift = (Gift) getSkill();
-        Set<Modifyer> modifyers = getModifyers();
-        int power = getPower();
-        int armorDef = armor.getDefenseMod();
-        int weaponDef = weapon.getDefenseMod();
-        int giftDef = useDefenseGift(gift);
-        int modsDef = 0;
-        for (Modifyer mod: modifyers){
-            int modDef = mod.getValue(); //No se si el metodo getValue de modificadores esta hecho
-            modsDef += modDef;
+        int defensePotential = rage + getPower() + getActiveArmor().getDefenseMod() + getActiveWeapon().getDefenseMod() + getActiveWeapon2().getDefenseMod() + useDefenseGift((Gift) getSkill());
+        for (Modifyer mod: getModifyers()){
+            int modDef = mod.getValue();
+            defensePotential += modDef;
         }
-        return power + armorDef + weaponDef + rage + modsDef + giftDef;
+        return defensePotential;
+    }
+
+    @Override
+    public void damaged() {
+        if (rage + 1 >= MAX_RAGE){
+            this.rage++;
+        }
+    }
+
+    @Override
+    public void successAttack() {
+    }
+
+    @Override
+    public int getAtribute() {
+        return rage;
     }
 }

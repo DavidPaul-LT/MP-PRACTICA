@@ -11,9 +11,7 @@ import java.util.List;
 public class Battle {
     private final Character character1;
     private final Character character2;
-    private int roundNumber;
     private Client challenger;
-
     private Client challenged;
     public Battle(BattleRequest battleRequest){
         UserManager userManager = new UserManager();
@@ -23,6 +21,9 @@ public class Battle {
         this.character2 = challenged.getCharacter().getCharacter();
     }
     public void fight(){
+        //int atribute1 = character1.getAtribute();
+        //int atribute2 = character2.getAtribute();
+        int roundNumber = 0;
         int hp1 = calculateHp(character1);
         int hp2 = calculateHp(character2);
         while (hp1 != 0 && hp2 != 0){
@@ -31,12 +32,20 @@ public class Battle {
                 case "both":
                     hp1--;
                     hp2--;
+                    character1.successAttack();
+                    character2.successAttack();
+                    character1.damaged();
+                    character2.damaged();
                     break;
                 case "character1":
                     hp2--;
+                    character1.successAttack();
+                    character2.damaged();
                     break;
                 case "character2":
                     hp1--;
+                    character2.successAttack();
+                    character1.damaged();
                     break;
                 default:
                     break;
